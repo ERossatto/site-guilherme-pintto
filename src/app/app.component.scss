@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Source+Sans+Pro&display=swap');
+
+// @media screen and (max-width: 767px) {
+// }
+
+// @media screen and (max-width: ???px) {
+// }
+
+// placeholders
+%font-oswald {
+  font-family: 'Oswald', sans-serif;
+  color: #000000;
+  font-weight: 500;
+  transform: scale(3.5);
+}
+
+
+.section-one {
+  background: url("../assets/pictures/background.png") no-repeat;
+  background-position-x: left;
+  background-position-y: top;
+  background-size: cover, 100%;
+  width: 100vw;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .autor {
+    background-color: green; // auxiliador
+
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+
+    &__title {
+      background-color: rgb(88, 31, 146); // auxiliador
+      border-radius: 1rem; // auxiliador
+
+      display: flex;
+      flex-direction: column;
+      height: 10rem;
+
+      &--first {
+        background-color: blue;  // auxiliador
+
+        @extend %font-oswald;
+        width: 0;
+        height: 0;
+      }
+      &--second {
+        position: relative;
+        top: 30%;
+        left: 30%;
+        width: 10rem;
+      }
+    }
+
+    &__description {
+      background-color: brown;  // auxiliador
+      border-radius: 1rem; // auxiliador
+
+      font-family: 'Source Sans Pro', sans-serif;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.5rem;
+    }
+  }
+
+  .books {
+    background-color: green; // auxiliador
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    width: 30rem;
+
+    &__title {
+      @extend %font-oswald;
+      align-self: flex-start;
+      height: 0;
+      width: 0;
+    }
+
+    &__content {
+      background-color: brown; // auxiliador
+      border-radius: 1rem; // auxiliador
+
+      margin-top: 3rem;
+      align-self: flex-start;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50rem;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10rem;
+        &__image {
+          position: relative;
+          left: -5rem;
+          transform: scale(.8);
+        }
+        &__button {
+          font-weight: bold;
+          border: none;
+          border-radius: 4px;
+          width: 12rem;
+          height: 2rem;
+          &--one {
+            background-color: #FFFFFF;
+            color: #29AEDD;
+          }
+          &--two {
+            background-color: #29AEDD;
+            color: #FFFFFF;
+          }
+        }
+      }
+
+      .media-icons {
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 17rem;
+      }
+    }
+  }
+
+  .countdown {
+    background-color: green; // auxiliador
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+
+    height: 30rem;
+
+    &__title {
+      background-color: rebeccapurple; // auxiliador
+
+      align-self: flex-start;
+      height: 0;
+      @extend %font-oswald;
+    }
+    &__sub-title {
+      background-color: yellow;  // auxiliador
+      z-index: 1;  // auxiliador
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    &__watch {
+      background-color: pink;
+      width: 30rem;
+      height: 15rem;
+    }
+  }
+}
+
+.section-two {
+  background-color: tomato;  // auxiliador
+  margin-top: 3rem;  // auxiliador
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 100rem;
+  .talk {
+    &__title {
+      @extend %font-oswald;
+    }
+  }
+
+}
