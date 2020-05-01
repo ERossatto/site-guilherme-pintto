@@ -20,11 +20,12 @@ export class AppComponent implements OnInit {
 
   public countdownTimer(value: string): string {
     const timeDifference = moment(this._launchDate, "DD/MM/YYYY hh").diff(moment( this._nowDate, "DD/MM/YYYY hh"));
-    console.log('-->: ', moment.utc(timeDifference).format("MM"));
+
+    console.log('-->: ', timeDifference);
 
     switch (value) {
       case 'months':
-        return moment.utc(timeDifference).format("MM");
+        return (moment.utc(timeDifference).month() > 0) ? moment.utc(timeDifference).month().toString() : '00';
       case 'days':
         return moment.utc(timeDifference).format("DD");
       case 'hours':
