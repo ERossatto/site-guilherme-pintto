@@ -65,11 +65,9 @@ $radius-large: 15px;
   -webkit-appearance: none;
   user-select: none;
 }
-
-
 .section-one {
   background: url("../assets/pictures/background.png") no-repeat;
-  background-size: 100% 100%; //AINDA NAO ESTA CERTO
+  background-size: 105% 100%; //AINDA NAO ESTA CERTO
 
   display: flex;
   flex-direction: column;
@@ -85,15 +83,15 @@ $radius-large: 15px;
     &__title {
       display: flex;
       flex-direction: column;
-      height: 20vh;
+      height: 22vh;
 
       &--first {
         @extend %font-oswald;
       }
       &--second {
         position: relative;
-        top: -0.5rem;
-        left: 10rem;
+        top: -1rem;
+        left: 11rem;
         width: 12rem;
       }
     }
@@ -109,28 +107,27 @@ $radius-large: 15px;
   .books {
     display: flex;
     flex-direction: column;
-    margin-top: 12vh;
+    margin-top: 13vh;
     &__title {
       @extend %font-oswald;
       align-self: flex-start;
     }
 
     &__content {
+      margin-top: 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 55vh;
+      width: 65vw;
       .item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        transform: scale(.5);
         &__image {
         }
         &__button {
-          transform: scale(2);
           @extend %button-config;
-          margin-top: 5rem;
+          margin-top: 2rem;
           font-weight: bold;
           border: none;
           border-radius: $radius-small;
