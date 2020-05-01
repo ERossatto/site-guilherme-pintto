@@ -1,17 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@469&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-// @media screen and (max-width: 767px) {
+// @mixin smartphones($orientation: portrait) {
+
+// 	@if $orientation == portrait {
+// 		@media only screen
+// 		and (min-device-width: 300px)
+// 		and (max-device-width: 767px)
+// 		and (orientation: portrait) {
+// 			@content;
+// 		}
+// 	}
+// 	@if $orientation == landscape {
+// 		@media only screen
+// 		and (min-device-width: 300px)
+// 		and (max-device-width: 767px)
+// 		and (orientation: landscape) {
+// 			@content;
+// 		}
+// 	}
 // }
 
-// @media screen and (max-width: ???px) {
+// @mixin tablets($orientation: portrait) {
+// 	@if $orientation == portrait {
+// 		@media only screen
+// 		and (min-device-width: 768px)
+// 		and (max-device-width: 1024px)
+// 		and (orientation: portrait) {
+// 			@content;
+// 		}
+// 	}
+// 	@if $orientation == landscape {
+// 		@media only screen
+// 		and (min-device-width: 768px)
+// 		and (max-device-width: 1024px)
+// 		and (orientation: landscape) {
+// 			@content;
+// 		}
+// 	}
 // }
+
+$white: #FFFFFF;
+$gray-light: #E6E5E5;
+$gray-dark:#656565;
+$blue: #29AEDD;
+$black: #000000;
+$radius-small: 4px;
+$radius-large: 15px;
 
 // placeholders
 %font-oswald {
   font-family: 'Oswald', sans-serif;
-  color: #000000;
+  color: $black;
   font-weight: 500;
-  transform: scale(3.5);
+  font-size: 4rem;
+}
+
+%button-config {
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  user-select: none;
 }
 
 
@@ -25,15 +75,15 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 
   .autor {
     background-color: green; // auxiliador
 
-    margin-top: 6rem;
     display: flex;
     flex-direction: column;
+    margin-top: 10rem;
     width: 30rem;
 
     &__title {
@@ -48,12 +98,10 @@
         background-color: blue;  // auxiliador
 
         @extend %font-oswald;
-        width: 0;
-        height: 0;
       }
       &--second {
         position: relative;
-        top: 30%;
+        top: -2%;
         left: 30%;
         width: 10rem;
       }
@@ -77,21 +125,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-top: 8rem;
     width: 30rem;
 
     &__title {
+      background-color: rgb(88, 31, 146); // auxiliador
+
       @extend %font-oswald;
       align-self: flex-start;
-      height: 0;
-      width: 0;
     }
 
     &__content {
       background-color: brown; // auxiliador
       border-radius: 1rem; // auxiliador
 
-      margin-top: 3rem;
       align-self: flex-start;
       display: flex;
       justify-content: space-between;
@@ -105,22 +152,23 @@
         width: 10rem;
         &__image {
           position: relative;
-          left: -5rem;
-          transform: scale(.8);
         }
         &__button {
+          @extend %button-config;
+          margin-top: 1rem;
+
           font-weight: bold;
           border: none;
-          border-radius: 4px;
+          border-radius: $radius-small;
           width: 12rem;
           height: 2rem;
           &--one {
-            background-color: #FFFFFF;
-            color: #29AEDD;
+            background-color: $white;
+            color: $blue;
           }
           &--two {
-            background-color: #29AEDD;
-            color: #FFFFFF;
+            background-color: $blue;
+            color: $white;
           }
         }
       }
@@ -136,35 +184,101 @@
   }
 
   .countdown {
-    background-color: green; // auxiliador
+    // background-color: green; // auxiliador
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 8rem;
+    margin-top: 5rem;
     margin-bottom: 3rem;
 
-    height: 30rem;
-
     &__title {
-      background-color: rebeccapurple; // auxiliador
+      // background-color: rebeccapurple; // auxiliador
 
-      align-self: flex-start;
-      height: 0;
+      align-self: center;
       @extend %font-oswald;
     }
     &__sub-title {
-      background-color: yellow;  // auxiliador
-      z-index: 1;  // auxiliador
+      // background-color: yellow; // auxiliador
+      // z-index: 1;  // auxiliador
+      margin: 1rem 0rem;
+
+      color: $white;
+      align-self: flex-start;
       font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 500;
     }
     &__watch {
-      background-color: pink;
-      width: 30rem;
-      height: 15rem;
+      background-color: $white; // auxiliador
+      border-radius: $radius-large;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      // esses dois caras eh para fazer os dois ppontos redondos e grandes
+      font-family: 'Oswald', sans-serif;
+      font-size: 5rem;
+
+      .watch {
+        &__pointer {
+          display: flex;
+          align-items: center;
+          padding-left: 2.25rem;
+          margin: 1.5rem 1rem 0rem 1rem;
+
+          background-color: $gray-light;
+          border-radius: $radius-large;
+
+          font-weight: 300;
+          font-family: 'Oswald', sans-serif;
+          font-size: 5rem;
+          letter-spacing: 2.25rem;
+
+          height: 10rem;
+        }
+        &__name {
+          color: $gray-dark;
+          font-size: 1.5rem;
+          margin: 0.75rem 1rem ;
+        }
+      }
     }
+    .form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      &__input {
+        border-radius: $radius-small;
+        border: thin solid $black;
+        width: 10rem;
+        height: 1.5rem;
+        &::placeholder {
+          font: Regular 18px/23px Source Sans Pro;
+          border: none;
+          background-color: $white;
+          color: $black;
+          padding-left: .5rem;
+        }
+      }
+      &__button {
+        @extend %button-config;
+
+        background-color: $white;
+        border: none;
+        border-radius: $radius-small;
+
+        font-weight: bold;
+        color: $blue;
+
+        width: 4rem;
+        height: 1.75rem;
+      }
+    }
+
   }
 }
 
@@ -177,7 +291,6 @@
   justify-content: space-around;
   align-items: center;
 
-  height: 100rem;
   .talk {
     &__title {
       @extend %font-oswald;

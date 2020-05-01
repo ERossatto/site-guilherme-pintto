@@ -24,19 +24,19 @@
     <div class="books__content">
 
       <div class="item">
-        <img class="item__image" src="../assets/pictures/livro1P.png" alt="capa do livro O óbvio também precisa ser dito">
-        <button (click)="test1()" class="item__button item__button--one">Comprar</button>
+        <img class="item__image" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
+        <button class="item__button item__button--one">Comprar</button>
       </div>
 
       <div class="item">
-        <img class="item__image" src="../assets/pictures/livro2P.png" alt="capa do livro Seja o amor da sua vida">
-        <button (click)="test()" class="item__button item__button--two">Comprar</button>
+        <img class="item__image" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
+        <button class="item__button item__button--two">Comprar</button>
       </div>
 
       <div class="media-icons">
         <img src="../assets/icons/youtube.svg" alt="ícone youtube">
         <img src="../assets/icons/facebook.svg" alt="ícone facebook">
-        <img src="../assets/icons/twitter.svg" alt="ícone instagram">
+        <img src="../assets/icons/instagram.svg" alt="ícone instagram">
         <img src="../assets/icons/twitter.svg" alt="ícone twitter">
       </div>
 
@@ -48,14 +48,37 @@
     <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
     <h2 class="countdown__sub-title">SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.</h2>
     <div class="countdown__watch">
-      Contador
+      <div class="watch">
+        <p class="watch__pointer">{{ countdownTimer('months') }}</p>
+        <p class="watch__name">meses</p>
+      </div>
+      :
+      <div class="watch">
+        <p class="watch__pointer">{{ countdownTimer('days') }}</p>
+        <p class="watch__name">dias</p>
+      </div>
+      :
+      <div class="watch">
+        <p class="watch__pointer">{{ countdownTimer('hours') }}</p>
+        <p class="watch__name">horas</p>
+      </div>
     </div>
+    <h2 class="countdown__sub-title">Preencha e receba em primeira mão a prá-venda do livro.</h2>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
+      <input class="form__input" type="text" placeholder="Nome" name="nome" ngModel>
+      <input class="form__input" type="text" placeholder="E-mail" name="email" ngModel>
+      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" ngModel>
+      <button type="submit" class="form__button">OK</button>
+    </form>
+
   </div>
 
 </section>
 
 <section class="section-two">
   <div class="talk">
+    <img src="../assets/pictures/palestra.svg" alt="Capa do livro seja o amor da sua vida">
     <h1 class="talk__title">NAS ESCOLAS OU EMPRESAS</h1>
   </div>
 
