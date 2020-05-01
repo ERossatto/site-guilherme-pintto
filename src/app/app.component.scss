@@ -64,6 +64,7 @@ $radius-large: 15px;
   -moz-appearance: none;
   -webkit-appearance: none;
   user-select: none;
+  border: none;
 }
 .section-one {
   background: url("../assets/pictures/background.png") no-repeat;
@@ -78,12 +79,13 @@ $radius-large: 15px;
   .autor {
     display: flex;
     flex-direction: column;
-    margin-top: 20vh;
+    margin-top: 15vh;
 
     &__title {
       display: flex;
       flex-direction: column;
       height: 22vh;
+      padding-bottom: 2vh;
 
       &--first {
         @extend %font-oswald;
@@ -99,7 +101,7 @@ $radius-large: 15px;
     &__description {
       font-family: 'Source Sans Pro', sans-serif;
       text-align: left;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.5rem;
     }
   }
@@ -107,32 +109,31 @@ $radius-large: 15px;
   .books {
     display: flex;
     flex-direction: column;
-    margin-top: 13vh;
+    margin-top: 10vh;
     &__title {
       @extend %font-oswald;
       align-self: flex-start;
     }
 
     &__content {
-      margin-top: 3rem;
+      margin-top: 10vh;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 65vw;
+      width: 70vw;
       .item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        &__image {
-        }
         &__button {
           @extend %button-config;
-          margin-top: 2rem;
+          margin-top: 4vh;
           font-weight: bold;
+          font-size: 15px;
           border: none;
           border-radius: $radius-small;
           width: 15rem;
-          height: 2rem;
+          height: 2.5rem;
           &--one {
             background-color: $white;
             color: $blue;
@@ -145,7 +146,7 @@ $radius-large: 15px;
       }
 
       .media-icons {
-        margin-right: 1rem;
+        margin-bottom: 5vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -157,8 +158,8 @@ $radius-large: 15px;
   .countdown {
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
 
     &__title {
       align-self: center;
@@ -226,7 +227,6 @@ $radius-large: 15px;
       &__button {
         @extend %button-config;
         background-color: $white;
-        border: none;
         border-radius: $radius-small;
         font-weight: bold;
         color: $blue;
@@ -239,8 +239,7 @@ $radius-large: 15px;
 }
 
 .section-two {
-  background-color: tomato;  // auxiliador
-  margin-top: 3rem;  // auxiliador
+  margin-top: 8vh;
 
   display: flex;
   flex-direction: column;
@@ -248,9 +247,42 @@ $radius-large: 15px;
   align-items: center;
 
   .talk {
-    &__title {
-      @extend %font-oswald;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__image {
+      margin-right: 5vw;
     }
+
+    .info {
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &__title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 40px;
+        font-weight: 500;
+      }
+      &__content {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 20px;
+      }
+      &__button {
+        @extend %button-config;
+        border-radius: $radius-small;
+        width: 15rem;
+        height: 2.5rem;
+        background-color: $blue;
+        color: $white;
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .video {
+    margin: 10vh 0vw;
   }
 
 }
