@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   public countdownTimer(value: string): string {
     const timeDifference = moment(this._launchDate, "DD/MM/YYYY hh").diff(moment( this._nowDate, "DD/MM/YYYY hh"));
+    console.log('-->: ', moment.utc(timeDifference).format("MM"));
 
     switch (value) {
       case 'months':
