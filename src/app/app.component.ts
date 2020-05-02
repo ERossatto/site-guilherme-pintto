@@ -34,6 +34,8 @@ export class AppComponent implements OnInit {
   public showContactPopup: boolean = false;
   public contactMessage = {
     name: '',
+    email: '',
+    phone: '',
     content: ''
   }
 
@@ -70,12 +72,15 @@ export class AppComponent implements OnInit {
   public closeContactPopup(): void {
     this.hideConfirmationMsgContact = true;
     this.showContactPopup = false;
+
+    this.contactMessage.name = '';
+    this.contactMessage.email = '';
+    this.contactMessage.phone = '';
   }
 
   public sendContactMessage(): void {
     this.contactMessage.content = this.textArea.nativeElement.value; // technical adjustment :X
     this.hideConfirmationMsgContact = false;
     console.log('-->: ', this.contactMessage);
-
   }
 }

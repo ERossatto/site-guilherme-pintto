@@ -4,10 +4,8 @@
 @import "../variables.scss";
 
 .section-one {
-  // Na responsividade acho melhor empurrar a foto e o bg pra direita pra não distorcer sla
   background: url("../assets/pictures/background.png") no-repeat;
-  // background-size: 105% 100%;
-  background-size: cover; //teste
+  background-size: cover;
 
   display: flex;
   flex-direction: column;
@@ -70,6 +68,7 @@
             @extend %white-button;
           }
           &--two {
+            border: thin solid $white;
             @extend %blue-button;
           }
         }
@@ -81,6 +80,9 @@
         flex-direction: column;
         justify-content: space-around;
         height: 17rem;
+        &__icon {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -88,10 +90,8 @@
   .countdown {
     display: flex;
     flex-direction: column;
-    // margin-top: 10vh;
-    // margin-bottom: 5vh;
-    margin-top: 14vh; //teste
-    margin-bottom: 6vh; // teste
+    margin-top: 14vh;
+    margin-bottom: 6vh;
 
     &__title {
       align-self: center;
@@ -209,7 +209,6 @@
   .video {
     margin: 10vh 0vw;
   }
-
 }
 
 .popup {
@@ -239,11 +238,11 @@
     position: absolute;
   }
   &__input {
-    margin: 1rem;
+    margin: 1rem 1rem 0rem 1rem;
     border: none;
     border-radius: $radius-small;
-    &--name {
-      min-height: 2.5rem;
+    &--headers {
+      min-height: 1.5rem;
       width: -webkit-fill-available;
     }
     &--message {
