@@ -220,6 +220,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  &__close {
+    position: relative;
+    @extend %button-config;
+    border-radius: $radius-large;
+    top: -26vh;
+    right: -16vw;
+    background-color: $gray-light;
+    color: $gray-dark;
+    height: 2rem;
+    width: 2rem;
+  }
   &__form {
     display: flex;
     flex-direction: column;

@@ -97,6 +97,7 @@
   </div>
 
   <div class="popup white-bg" *ngIf="showContactPopup">
+    <button class="popup__close" (click)="showContactPopup = false">X</button>
     <form class="popup__form">
       <input
         class="popup__input popup__input--name"
