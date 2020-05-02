@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import * as moment from 'moment';
 
@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('textArea', {static: false}) textArea: string = '';
+  @ViewChild('textArea', {static: false}) textArea: ElementRef;
 
   private _nowDate = moment().format("DD/MM/YYYY hh");
   private _launchDate = moment('20/05/2020 00:00', "DD/MM/YYYY hh");
@@ -23,19 +23,19 @@ export class AppComponent implements OnInit {
     bookTwoLink: 'https://www.amazon.com.br/Seja-amor-vida-Guilherme-Pintto/dp/8542212991',
   };
 
+  public hideConfirmationMsgCountdown: boolean = true;
   public personInfo = {
     name: '',
     email: '',
     whatsapp: ''
   };
 
+  public hideConfirmationMsgContact: boolean = true;
+  public showContactPopup: boolean = false;
   public contactMessage = {
     name: '',
-    content: this.textArea
+    content: ''
   }
-
-  public hideConfirmationMsg: boolean = true;
-  public showContactPopup: boolean = true; //mock retornar para false
 
   constructor() { }
 
@@ -55,19 +55,27 @@ export class AppComponent implements OnInit {
     };
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     console.log('-->: ', this.personInfo);
-    this.hideConfirmationMsg = false;
+    this.hideConfirmationMsgCountdown = false;
     this.personInfo.name = '';
     this.personInfo.email = '';
     this.personInfo.whatsapp = '';
   }
 
-  public openContactForm() {
+  public openContactForm(): void {
     this.showContactPopup = true;
   }
 
-  public sendContactMessage() {
+  public closeContactPopup(): void {
+    this.hideConfirmationMsgContact = true;
+    this.showContactPopup = false;
+  }
+
+  public sendContactMessage(): void {
+    this.contactMessage.content = this.textArea.nativeElement.value; // technical adjustment :X
+    this.hideConfirmationMsgContact = false;
+    console.log('-->: ', this.contactMessage);
 
   }
 }

@@ -107,11 +107,7 @@
       }
     }
     &__confirmation-msg {
-      margin-bottom: .5vh;
-      color: $green;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 500;
-      font-size: 18px;
+      @extend %confirmation-text;
     }
     &__watch {
       background-color: $white;
@@ -261,6 +257,10 @@
       color: $gray-dark;
       padding-left: .5rem;
     }
+  }
+  &__confirmation-msg {
+    @extend %confirmation-text;
+    align-self: center;
   }
   &__button {
     align-self: flex-end;

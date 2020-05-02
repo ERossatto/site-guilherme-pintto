@@ -66,12 +66,12 @@
       </div>
     </div>
     <h2 class="countdown__sub-title">Preencha e receba em primeira mão a prá-venda do livro.</h2>
-    <h2 [hidden]="hideConfirmationMsg" class="countdown__confirmation-msg">Obrigado! Nossa equipe entrará em contato com você em breve.</h2>
+    <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">Obrigado! Nossa equipe entrará em contato com você em breve.</h2>
 
     <form class="form">
-      <input class="form__input" type="text" placeholder="Nome" name="nome" [(ngModel)]="personInfo.name" maxlength="50" (click)="hideConfirmationMsg = true">
-      <input class="form__input" type="text" placeholder="E-mail" name="email" [(ngModel)]="personInfo.email" maxlength="50" (click)="hideConfirmationMsg = true">
-      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" [(ngModel)]="personInfo.whatsapp" maxlength="50" (click)="hideConfirmationMsg = true">
+      <input class="form__input" type="text" placeholder="Nome" name="nome" [(ngModel)]="personInfo.name" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
+      <input class="form__input" type="text" placeholder="E-mail" name="email" [(ngModel)]="personInfo.email" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
+      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" [(ngModel)]="personInfo.whatsapp" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
       <button
         class="form__button"
         (click)="onSubmit()"
@@ -97,7 +97,7 @@
   </div>
 
   <div class="popup white-bg" *ngIf="showContactPopup">
-    <button class="popup__close" (click)="showContactPopup = false">X</button>
+    <button class="popup__close" (click)="closeContactPopup()">X</button>
     <form class="popup__form">
       <input
         class="popup__input popup__input--name"
@@ -114,9 +114,10 @@
         [maxLength]="1000"
         placeholder="Digite sua mensagem aqui..."
       ></textarea>
+      <h2 [hidden]="hideConfirmationMsgContact" class="popup__confirmation-msg">Sua mensagem foi enviada com sucesso.</h2>
       <button
         class="popup__button"
-        [disabled]="(contactMessage.name == '') || (contactMessage.content == '')"
+        [disabled]="(contactMessage.name == '')"
         (click)="sendContactMessage()">
           Enviar
       </button>

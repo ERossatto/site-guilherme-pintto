@@ -47,6 +47,14 @@ $radius-large: 15px;
   font-size: 15px;
 }
 
+%confirmation-text {
+  margin-bottom: .5vh;
+  color: $green;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
 // @mixin smartphones($orientation: portrait) {
 
 // 	@if $orientation == portrait {
