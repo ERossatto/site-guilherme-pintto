@@ -1,74 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@469&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import "../variables.scss";
 
-// @mixin smartphones($orientation: portrait) {
-
-// 	@if $orientation == portrait {
-// 		@media only screen
-// 		and (min-device-width: 300px)
-// 		and (max-device-width: 767px)
-// 		and (orientation: portrait) {
-// 			@content;
-// 		}
-// 	}
-// 	@if $orientation == landscape {
-// 		@media only screen
-// 		and (min-device-width: 300px)
-// 		and (max-device-width: 767px)
-// 		and (orientation: landscape) {
-// 			@content;
-// 		}
-// 	}
-// }
-
-// @mixin tablets($orientation: portrait) {
-// 	@if $orientation == portrait {
-// 		@media only screen
-// 		and (min-device-width: 768px)
-// 		and (max-device-width: 1024px)
-// 		and (orientation: portrait) {
-// 			@content;
-// 		}
-// 	}
-// 	@if $orientation == landscape {
-// 		@media only screen
-// 		and (min-device-width: 768px)
-// 		and (max-device-width: 1024px)
-// 		and (orientation: landscape) {
-// 			@content;
-// 		}
-// 	}
-// }
-
-// variables
-$white: #FFFFFF;
-$gray-light: #E6E5E5;
-$gray-dark:#656565;
-$gray-deep:#404040;
-$blue: #29AEDD;
-$black: #000000;
-$radius-small: 4px;
-$radius-large: 15px;
-
-// placeholders
-%font-oswald {
-  font-family: 'Oswald', sans-serif;
-  color: $black;
-  font-weight: 500;
-  font-size: 4.5rem;
-}
-
-%button-config {
-  cursor: pointer;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  user-select: none;
-  border: none;
-}
 .section-one {
+  // Na responsividade acho melhor empurrar a foto e o bg pra direita pra não distorcer sla
   background: url("../assets/pictures/background.png") no-repeat;
-  background-size: 105% 100%; //AINDA NAO ESTA CERTO
+  // background-size: 105% 100%;
+  background-size: cover; //teste
 
   display: flex;
   flex-direction: column;
@@ -126,21 +65,12 @@ $radius-large: 15px;
         flex-direction: column;
         align-items: center;
         &__button {
-          @extend %button-config;
           margin-top: 4vh;
-          font-weight: bold;
-          font-size: 15px;
-          border: none;
-          border-radius: $radius-small;
-          width: 15rem;
-          height: 2.5rem;
           &--one {
-            background-color: $white;
-            color: $blue;
+            @extend %white-button;
           }
           &--two {
-            background-color: $blue;
-            color: $white;
+            @extend %blue-button;
           }
         }
       }
@@ -158,8 +88,10 @@ $radius-large: 15px;
   .countdown {
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    // margin-top: 10vh;
+    // margin-bottom: 5vh;
+    margin-top: 14vh; //teste
+    margin-bottom: 6vh; // teste
 
     &__title {
       align-self: center;
@@ -168,9 +100,18 @@ $radius-large: 15px;
     &__sub-title {
       margin: 1rem 0rem;
       color: $white;
-      align-self: flex-start;
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: 500;
+      &--centralized {
+        align-self: center;
+      }
+    }
+    &__confirmation-msg {
+      margin-bottom: .5vh;
+      color: $green;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
     }
     &__watch {
       background-color: $white;
@@ -225,13 +166,8 @@ $radius-large: 15px;
         }
       }
       &__button {
-        @extend %button-config;
-        background-color: $white;
-        border-radius: $radius-small;
-        font-weight: bold;
-        color: $blue;
+        @extend %white-button;
         width: 5rem;
-        height: 2.5rem;
       }
     }
 
@@ -254,7 +190,7 @@ $radius-large: 15px;
       margin-right: 5vw;
     }
 
-    .info {
+    .contact {
       height: 30vh;
       display: flex;
       flex-direction: column;
@@ -269,14 +205,7 @@ $radius-large: 15px;
         font-size: 20px;
       }
       &__button {
-        @extend %button-config;
-        border-radius: $radius-small;
-        width: 15rem;
-        height: 2.5rem;
-        background-color: $blue;
-        color: $white;
-        font-weight: bold;
-        font-size: 15px;
+        @extend %blue-button;
       }
     }
   }
@@ -285,4 +214,48 @@ $radius-large: 15px;
     margin: 10vh 0vw;
   }
 
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: $blue;
+    border-radius: $radius-large;
+    height: 50vh;
+    width: 30vw;
+    position: absolute;
+  }
+  &__input {
+    margin: 1rem;
+    border: none;
+    border-radius: $radius-small;
+    &--name {
+      min-height: 2.5rem;
+      width: -webkit-fill-available;
+    }
+    &--message {
+      height: -webkit-fill-available;
+      width: -webkit-fill-available;
+    }
+    &::placeholder {
+      background-color: $white;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+      color: $gray-dark;
+      padding-left: .5rem;
+    }
+  }
+  &__button {
+    align-self: flex-end;
+    margin: 1rem;
+    min-height: 2.5rem;
+    width: 5rem;
+    @extend %white-button;
+  }
 }

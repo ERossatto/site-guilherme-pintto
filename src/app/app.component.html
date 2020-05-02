@@ -25,19 +25,19 @@
 
       <div class="item">
         <img class="item__image" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
-        <button class="item__button item__button--one">Comprar</button>
+        <a [href]="links.bookOneLink"><button class="item__button item__button--one">Comprar</button></a>
       </div>
 
       <div class="item">
-        <img size="0.5x" class="item__image" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
-        <button class="item__button item__button--two">Comprar</button>
+        <img class="item__image" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
+        <a [href]="links.bookTwoLink"><button class="item__button item__button--two">Comprar</button></a>
       </div>
 
       <div class="media-icons">
-        <img src="../assets/icons/youtube.svg" alt="ícone youtube">
-        <img src="../assets/icons/facebook.svg" alt="ícone facebook">
-        <img src="../assets/icons/instagram.svg" alt="ícone instagram">
-        <img src="../assets/icons/twitter.svg" alt="ícone twitter">
+        <a [href]="links.youtubeLink"><img src="../assets/icons/youtube.svg" alt="ícone youtube"></a>
+        <a [href]="links.facebookLink"><img src="../assets/icons/facebook.svg" alt="ícone facebook"></a>
+        <a [href]="links.instagramLink"><img src="../assets/icons/instagram.svg" alt="ícone instagram"></a>
+        <a [href]="links.twitterLink"><img src="../assets/icons/twitter.svg" alt="ícone twitter"></a>
       </div>
 
     </div>
@@ -46,7 +46,9 @@
 
   <div class="countdown">
     <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
-    <h2 class="countdown__sub-title">SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.</h2>
+    <h2 class="countdown__sub-title countdown__sub-title--centralized">
+      SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.
+    </h2>
     <div class="countdown__watch">
       <div class="watch">
         <p class="watch__pointer">{{ countdownTimer('months') }}</p>
@@ -64,14 +66,19 @@
       </div>
     </div>
     <h2 class="countdown__sub-title">Preencha e receba em primeira mão a prá-venda do livro.</h2>
+    <h2 [hidden]="hideConfirmationMsg" class="countdown__confirmation-msg">Obrigado! Nossa equipe entrará em contato com você em breve.</h2>
 
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
-      <input class="form__input" type="text" placeholder="Nome" name="nome" ngModel>
-      <input class="form__input" type="text" placeholder="E-mail" name="email" ngModel>
-      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" ngModel>
-      <button type="submit" class="form__button">OK</button>
+    <form class="form">
+      <input class="form__input" type="text" placeholder="Nome" name="nome" [(ngModel)]="personInfo.name" maxlength="50" (click)="hideConfirmationMsg = true">
+      <input class="form__input" type="text" placeholder="E-mail" name="email" [(ngModel)]="personInfo.email" maxlength="50" (click)="hideConfirmationMsg = true">
+      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" [(ngModel)]="personInfo.whatsapp" maxlength="50" (click)="hideConfirmationMsg = true">
+      <button
+        class="form__button"
+        (click)="onSubmit()"
+        [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
+          OK
+      </button>
     </form>
-
   </div>
 
 </section>
@@ -79,21 +86,47 @@
 <section class="section-two">
   <div class="talk">
     <img class="talk__image" src="../assets/pictures/palestra.svg" alt="Capa do livro seja o amor da sua vida">
-    <div class="info">
-      <h1 class="info__title">NAS ESCOLAS OU EMPRESAS</h1>
-      <h2 class="info__content">
+    <div class="contact">
+      <h1 class="contact__title">NAS ESCOLAS OU EMPRESAS</h1>
+      <h2 class="contact__content">
         Vamos falar sobre a importância do amor-próprio
         <br> na sua escola ou na sua empresa?
       </h2>
-      <button class="info__button">Entrar em contato</button>
+      <button class="contact__button" (click)="openContactForm()">Entrar em contato</button>
     </div>
+  </div>
+
+  <div class="popup white-bg" *ngIf="showContactPopup">
+    <form class="popup__form">
+      <input
+        class="popup__input popup__input--name"
+        type="text"
+        placeholder="Digite seu nome aqui..."
+        maxlength="250"
+        name = "name"
+        [(ngModel)]="contactMessage.name">
+      <textarea
+        #textArea
+        class="popup__input popup__input--message"
+        [rows]="10"
+        [cols]="5"
+        [maxLength]="1000"
+        placeholder="Digite sua mensagem aqui..."
+      ></textarea>
+      <button
+        class="popup__button"
+        [disabled]="(contactMessage.name == '') || (contactMessage.content == '')"
+        (click)="sendContactMessage()">
+          Enviar
+      </button>
+    </form>
   </div>
 
   <iframe
     class="video"
     width="1120"
     height="630"
-    src="https://www.youtube.com/embed/59vwvTyvz0M"
+    src="https://www.youtube.com/embed/kBuD6J7FuKs"
     frameborder="0"
     allow="
       accelerometer;
@@ -104,6 +137,7 @@
     "
     allowfullscreen>
   </iframe>
+
 </section>
 
 

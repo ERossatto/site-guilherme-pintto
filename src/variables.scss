@@ -1,0 +1,87 @@
+// variables
+$white: #FFFFFF;
+$gray-light: #E6E5E5;
+$gray-dark:#656565;
+$gray-deep:#404040;
+$blue: #29AEDD;
+$green: #72f542;
+$black: #000000;
+$radius-small: 4px;
+$radius-large: 15px;
+
+// placeholders
+%font-oswald {
+  font-family: 'Oswald', sans-serif;
+  color: $black;
+  font-weight: 500;
+  font-size: 4.5rem;
+}
+
+%button-config {
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  user-select: none;
+  border: none;
+}
+
+%blue-button {
+  @extend %button-config;
+  border-radius: $radius-small;
+  width: 15rem;
+  height: 2.5rem;
+  background-color: $blue;
+  color: $white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+%white-button {
+  @extend %button-config;
+  border-radius: $radius-small;
+  width: 15rem;
+  height: 2.5rem;
+  background-color: $white;
+  color: $blue;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+// @mixin smartphones($orientation: portrait) {
+
+// 	@if $orientation == portrait {
+// 		@media only screen
+// 		and (min-device-width: 300px)
+// 		and (max-device-width: 767px)
+// 		and (orientation: portrait) {
+// 			@content;
+// 		}
+// 	}
+// 	@if $orientation == landscape {
+// 		@media only screen
+// 		and (min-device-width: 300px)
+// 		and (max-device-width: 767px)
+// 		and (orientation: landscape) {
+// 			@content;
+// 		}
+// 	}
+// }
+
+// @mixin tablets($orientation: portrait) {
+// 	@if $orientation == portrait {
+// 		@media only screen
+// 		and (min-device-width: 768px)
+// 		and (max-device-width: 1024px)
+// 		and (orientation: portrait) {
+// 			@content;
+// 		}
+// 	}
+// 	@if $orientation == landscape {
+// 		@media only screen
+// 		and (min-device-width: 768px)
+// 		and (max-device-width: 1024px)
+// 		and (orientation: landscape) {
+// 			@content;
+// 		}
+// 	}
+// }
