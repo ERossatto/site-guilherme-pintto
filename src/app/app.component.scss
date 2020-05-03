@@ -4,38 +4,72 @@
 @import "../variables.scss";
 
 .section-one {
-  background: url("../assets/pictures/background.png") no-repeat;
+  @include web() {
+    background: url("../assets/pictures/background.png") no-repeat;
+    background-size: cover;
+    padding-left: 25vw;
+  }
+  @include mobile {
+    width: 100vw;
+  }
   background-size: cover;
-
+  background-color: yellowgreen; //auxiliador
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  padding-left: 25vw;
+  &::after {
+    @include mobile {
+      position: absolute;
+      top: -5vh;
+      right: -10vw;
+      content: url(../assets/mobile/autor.png);
+    }
+  }
 
   .autor {
+    @include mobile {
+      width: 100vw;
+      margin-top: 10vh;
+    }
+    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 15vh;
-
     &__title {
       display: flex;
       flex-direction: column;
       height: 22vh;
       padding-bottom: 2vh;
-
       &--first {
         @extend %font-oswald;
       }
-      &--second {
+      &--second-web {
+        @include web() {
+          display: block;
+          position: relative;
+          top: -1rem;
+          left: 11rem;
+          width: 12rem;
+        }
+        display: none;
+      }
+      &--second-mobile {
+        @include web() {
+          display: none;
+        }
         position: relative;
-        top: -1rem;
-        left: 11rem;
-        width: 12rem;
+        top: -.25rem;
+        left: -2.5rem;
+        transform: scale(1.25);
       }
     }
 
     &__description {
+      @include mobile {
+        font-size: 12px;
+        line-height: 1rem;
+      }
       font-family: 'Source Sans Pro', sans-serif;
       text-align: left;
       font-size: 20px;
@@ -44,6 +78,11 @@
   }
 
   .books {
+    @include mobile {
+      width: 100vw;
+      align-items: center;
+    }
+    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 10vh;
@@ -53,6 +92,10 @@
     }
 
     &__content {
+      @include mobile {
+        width: 100%;
+      }
+      background-color: salmon; //auxiliar
       margin-top: 10vh;
       display: flex;
       justify-content: space-between;
@@ -62,6 +105,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        &__image-web {
+          @include mobile {
+            display: none;
+          }
+        }
+        &__image-mobile {
+          @include web {
+            display: none;
+          }
+        }
         &__button {
           margin-top: 4vh;
           &--one {
@@ -75,6 +128,9 @@
       }
 
       .media-icons {
+        @include mobile {
+          display: none;
+        }
         margin-bottom: 5vh;
         display: flex;
         flex-direction: column;
@@ -88,6 +144,12 @@
   }
 
   .countdown {
+    @include mobile {
+      width: 100%;
+      margin-top: 10vh;
+      margin-bottom: 0vh;
+    }
+    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 14vh;
@@ -98,6 +160,9 @@
       @extend %font-oswald;
     }
     &__sub-title {
+      @include mobile {
+        font-size: 10px
+      }
       margin: 1rem 0rem;
       color: $white;
       font-family: 'Source Sans Pro', sans-serif;
@@ -105,11 +170,23 @@
       &--centralized {
         align-self: center;
       }
+      &--black {
+        @include mobile {
+          align-self: center;
+          font-size: 14px;
+          color: $black;
+        }
+      }
     }
     &__confirmation-msg {
       @extend %confirmation-text;
     }
     &__watch {
+      @include mobile {
+        transform: scale(.5) translate(-50%, -50%);
+        width: fit-content;
+        margin-bottom: -15vh; // gambiarra
+      }
       background-color: $white;
       border-radius: $radius-large;
       display: flex;
@@ -146,9 +223,17 @@
       }
     }
     .form {
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+      }
       display: flex;
       justify-content: space-between;
       &__input {
+        @include mobile {
+          width: 80vw;
+          margin-bottom: .5rem;
+        }
         border-radius: $radius-small;
         border: thin solid $black;
         width: 11.5rem;
@@ -161,9 +246,21 @@
           padding-left: .5rem;
         }
       }
-      &__button {
+      &__button-web {
+        @include mobile {
+          display: none;
+        }
         @extend %white-button;
         width: 5rem;
+      }
+      &__button-mobile {
+        @include web {
+          display: none;
+        }
+        @extend %blue-button;
+        width: 80vw;
+        height: 2.25rem;
+        font-size: 14px;
       }
     }
 
@@ -179,93 +276,130 @@
   align-items: center;
 
   .talk {
+    @include mobile {
+      flex-direction: column;
+      height: 70vh;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
     &__image {
-      margin-right: 5vw;
+      @include mobile {
+        margin-bottom: 5vh;
+      }
+      @include web {
+        margin-right: 5vw;
+      }
     }
 
     .contact {
+      @include mobile {
+        align-items: center;
+      }
       height: 30vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       &__title {
+        @include mobile {
+          font-size: 36px;
+        }
+        @include web {
+          text-transform: uppercase;
+        }
         font-family: 'Oswald', sans-serif;
         font-size: 40px;
         font-weight: 500;
       }
       &__content {
+        @include mobile {
+          font-size: 14px;
+        }
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 20px;
       }
       &__button {
+        @include mobile {
+          width: 80vw;
+          height: 2.25rem;
+          font-size: 14px;
+        }
         @extend %blue-button;
       }
+    }
+  }
+
+  .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__close {
+      @include mobile { // gambiarra
+        top: -34vh;
+      }
+      position: relative;
+      @extend %button-config;
+      border-radius: $radius-large;
+      top: -26vh;
+      right: -16vw;
+      background-color: $gray-light;
+      color: $gray-dark;
+      height: 2rem;
+      width: 2rem;
+    }
+    &__form {
+      @include mobile { // gambiarra
+        width: 70vw;
+        transform: translate(-30%, -15%);
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      background-color: $blue;
+      border-radius: $radius-large;
+      height: 50vh;
+      width: 30vw;
+      position: absolute;
+    }
+    &__input {
+      margin: 1rem 1rem 0rem 1rem;
+      border: none;
+      border-radius: $radius-small;
+      &--headers {
+        min-height: 1.5rem;
+        width: -webkit-fill-available;
+      }
+      &--message {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+      }
+      &::placeholder {
+        background-color: $white;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 1rem;
+        color: $gray-dark;
+        padding-left: .5rem;
+      }
+    }
+    &__confirmation-msg {
+      @extend %confirmation-text;
+      align-self: center;
+    }
+    &__button {
+      align-self: flex-end;
+      margin: 1rem;
+      min-height: 2.5rem;
+      width: 5rem;
+      @extend %white-button;
     }
   }
 
   .video {
     margin: 10vh 0vw;
   }
+
+
 }
 
-.popup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &__close {
-    position: relative;
-    @extend %button-config;
-    border-radius: $radius-large;
-    top: -26vh;
-    right: -16vw;
-    background-color: $gray-light;
-    color: $gray-dark;
-    height: 2rem;
-    width: 2rem;
-  }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: $blue;
-    border-radius: $radius-large;
-    height: 50vh;
-    width: 30vw;
-    position: absolute;
-  }
-  &__input {
-    margin: 1rem 1rem 0rem 1rem;
-    border: none;
-    border-radius: $radius-small;
-    &--headers {
-      min-height: 1.5rem;
-      width: -webkit-fill-available;
-    }
-    &--message {
-      height: -webkit-fill-available;
-      width: -webkit-fill-available;
-    }
-    &::placeholder {
-      background-color: $white;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1rem;
-      color: $gray-dark;
-      padding-left: .5rem;
-    }
-  }
-  &__confirmation-msg {
-    @extend %confirmation-text;
-    align-self: center;
-  }
-  &__button {
-    align-self: flex-end;
-    margin: 1rem;
-    min-height: 2.5rem;
-    width: 5rem;
-    @extend %white-button;
-  }
-}
+

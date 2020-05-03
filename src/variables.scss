@@ -9,12 +9,78 @@ $black: #000000;
 $radius-small: 4px;
 $radius-large: 15px;
 
+@mixin mobile {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 767px) {
+    @content;
+  }
+}
+
+@mixin smartphones($orientation: portrait) {
+
+	@if $orientation == portrait {
+		@media only screen
+		and (min-device-width: 300px)
+		and (max-device-width: 767px)
+		and (orientation: portrait) {
+			@content;
+		}
+	}
+	@if $orientation == landscape {
+		@media only screen
+		and (min-device-width: 300px)
+		and (max-device-width: 767px)
+		and (orientation: landscape) {
+			@content;
+		}
+  }
+}
+
+@mixin tablets($orientation: portrait) {
+	@if $orientation == portrait {
+		@media only screen
+		and (min-device-width: 768px)
+		and (max-device-width: 1024px)
+		and (orientation: portrait) {
+			@content;
+		}
+	}
+	@if $orientation == landscape {
+		@media only screen
+		and (min-device-width: 768px)
+		and (max-device-width: 1024px)
+		and (orientation: landscape) {
+			@content;
+		}
+  }
+}
+
+@mixin web() {
+  @media only screen
+  and (min-device-width: 1024px) {
+    @content;
+  }
+}
+
+// @include smartphones(portrait) {
+// }
+
+// @include smartphones(landscape) {
+// }
+
+// @include web() {
+// }
+
 // placeholders
 %font-oswald {
   font-family: 'Oswald', sans-serif;
   color: $black;
   font-weight: 500;
   font-size: 4.5rem;
+  @include mobile {
+    font-size: 2.5rem;
+  }
 }
 
 %button-config {
@@ -25,26 +91,30 @@ $radius-large: 15px;
   border: none;
 }
 
-%blue-button {
+%button-default {
+  @include mobile {
+    width: 10rem;
+    height: 1.5rem;
+    font-size: 10px;
+  }
   @extend %button-config;
   border-radius: $radius-small;
   width: 15rem;
   height: 2.5rem;
-  background-color: $blue;
-  color: $white;
   font-weight: bold;
   font-size: 15px;
 }
 
+%blue-button {
+  @extend %button-default;
+  background-color: $blue;
+  color: $white;
+}
+
 %white-button {
-  @extend %button-config;
-  border-radius: $radius-small;
-  width: 15rem;
-  height: 2.5rem;
+  @extend %button-default;
   background-color: $white;
   color: $blue;
-  font-weight: bold;
-  font-size: 15px;
 }
 
 %confirmation-text {
@@ -55,41 +125,3 @@ $radius-large: 15px;
   font-size: 18px;
 }
 
-// @mixin smartphones($orientation: portrait) {
-
-// 	@if $orientation == portrait {
-// 		@media only screen
-// 		and (min-device-width: 300px)
-// 		and (max-device-width: 767px)
-// 		and (orientation: portrait) {
-// 			@content;
-// 		}
-// 	}
-// 	@if $orientation == landscape {
-// 		@media only screen
-// 		and (min-device-width: 300px)
-// 		and (max-device-width: 767px)
-// 		and (orientation: landscape) {
-// 			@content;
-// 		}
-// 	}
-// }
-
-// @mixin tablets($orientation: portrait) {
-// 	@if $orientation == portrait {
-// 		@media only screen
-// 		and (min-device-width: 768px)
-// 		and (max-device-width: 1024px)
-// 		and (orientation: portrait) {
-// 			@content;
-// 		}
-// 	}
-// 	@if $orientation == landscape {
-// 		@media only screen
-// 		and (min-device-width: 768px)
-// 		and (max-device-width: 1024px)
-// 		and (orientation: landscape) {
-// 			@content;
-// 		}
-// 	}
-// }

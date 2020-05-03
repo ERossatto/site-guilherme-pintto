@@ -1,84 +1,118 @@
 <section class="section-one">
 
-  <div class="autor">
-    <div class="autor__title">
-      <h1 class="autor__title--first">GUILHERME</h1>
-      <img class="autor__title--second" src="../assets/pictures/secondName.svg" alt="sobrenome do autor">
+    <div class="autor">
+      <div class="autor__title">
+        <h1 class="autor__title--first">GUILHERME</h1>
+        <img class="autor__title--second-web" src="../assets/pictures/secondName.svg" alt="sobrenome do autor">
+        <img class="autor__title--second-mobile" src="../assets/mobile/secondNameMobile.svg" alt="sobrenome do autor">
+      </div>
+
+      <h2 class="autor__description">
+        Comunicador e Escritor gaúcho autor do best-seller "Seja o
+        <br>amor da sua vida" e do "O óbvio também precisa ser dito", pela
+        <br>Editora Planeta. Eleito como 2º melhor cronista no concurso
+        <br>literário nacional Felippe D’Oliveira, em Santa Maria.
+        <br>Atualmente, estudante de psicologia, Guilherme propaga a
+        <br>importância do amor-próprio em suas redes sociais para mais
+        <br>de 1 milhão de seguidores e nos palcos Brasil afora.
+      </h2>
     </div>
 
-    <h2 class="autor__description">
-      Comunicador e Escritor gaúcho autor do best-seller Seja o
-      <br>amor da sua vida e do O óbvio também precisa ser dito, pela
-      <br>Editora Planeta. Eleito como 2º melhor cronista no concurso
-      <br>literário nacional Felippe D’Oliveira, em Santa Maria.
-      <br>Atualmente, estudante de psicologia, Guilherme propaga a
-      <br>importância do amor-próprio em suas redes sociais para mais
-      <br>de 1 milhão de seguidores e nos palcos Brasil afora.
-    </h2>
-  </div>
+    <div class="books">
 
-  <div class="books">
+      <h1 class="books__title">LIVROS</h1>
 
-    <h1 class="books__title">LIVROS</h1>
+      <div class="books__content">
 
-    <div class="books__content">
+        <div class="item">
+          <img class="item__image-web" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
+          <img class="item__image-mobile" src="../assets/mobile/livro1mobile.png" alt="capa do livro O óbvio também precisa ser dito">
+          <a [href]="links.bookOneLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--one">Comprar</button></a>
+        </div>
 
-      <div class="item">
-        <img class="item__image" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
-        <a [href]="links.bookOneLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--one">Comprar</button></a>
+        <div class="item">
+          <img class="item__image-web" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
+          <img class="item__image-mobile" src="../assets/mobile/livro2mobile.png" alt="capa do livro Seja o amor da sua vida">
+          <a [href]="links.bookTwoLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--two">Comprar</button></a>
+        </div>
+
+        <div class="media-icons">
+          <a [href]="links.youtubeLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/youtube.svg" alt="ícone youtube"></a>
+          <a [href]="links.facebookLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/facebook.svg" alt="ícone facebook"></a>
+          <a [href]="links.instagramLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/instagram.svg" alt="ícone instagram"></a>
+          <a [href]="links.twitterLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/twitter.svg" alt="ícone twitter"></a>
+        </div>
       </div>
 
-      <div class="item">
-        <img class="item__image" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
-        <a [href]="links.bookTwoLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--two">Comprar</button></a>
-      </div>
-
-      <div class="media-icons">
-        <a [href]="links.youtubeLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/youtube.svg" alt="ícone youtube"></a>
-        <a [href]="links.facebookLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/facebook.svg" alt="ícone facebook"></a>
-        <a [href]="links.instagramLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/instagram.svg" alt="ícone instagram"></a>
-        <a [href]="links.twitterLink" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/twitter.svg" alt="ícone twitter"></a>
-      </div>
     </div>
 
-  </div>
+    <div class="countdown">
+      <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
+      <h2 class="countdown__sub-title countdown__sub-title--centralized">
+        SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.
+      </h2>
+      <div class="countdown__watch">
+        <div class="watch">
+          <p class="watch__pointer">{{ countdownTimer('months') }}</p>
+          <p class="watch__name">meses</p>
+        </div>
+        <div class="colon">:</div>
+        <div class="watch">
+          <p class="watch__pointer">{{ countdownTimer('days') }}</p>
+          <p class="watch__name">dias</p>
+        </div>
+        <div class="colon">:</div>
+        <div class="watch">
+          <p class="watch__pointer">{{ countdownTimer('hours') }}</p>
+          <p class="watch__name">horas</p>
+        </div>
+      </div>
+      <h2 class="countdown__sub-title countdown__sub-title--black">
+        Preencha e receba em primeira mão a prá-venda do livro.
+      </h2>
+      <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">
+        Obrigado! Nossa equipe entrará em contato com você em breve.
+      </h2>
 
-  <div class="countdown">
-    <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
-    <h2 class="countdown__sub-title countdown__sub-title--centralized">
-      SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.
-    </h2>
-    <div class="countdown__watch">
-      <div class="watch">
-        <p class="watch__pointer">{{ countdownTimer('months') }}</p>
-        <p class="watch__name">meses</p>
-      </div>
-      <div class="colon">:</div>
-      <div class="watch">
-        <p class="watch__pointer">{{ countdownTimer('days') }}</p>
-        <p class="watch__name">dias</p>
-      </div>
-      <div class="colon">:</div>
-      <div class="watch">
-        <p class="watch__pointer">{{ countdownTimer('hours') }}</p>
-        <p class="watch__name">horas</p>
-      </div>
+      <form class="form">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Nome"
+          name="nome"
+          [(ngModel)]="personInfo.name"
+          maxlength="50"
+          (click)="hideConfirmationMsgCountdown = true">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="E-mail"
+          name="email"
+          [(ngModel)]="personInfo.email"
+          maxlength="50"
+          (click)="hideConfirmationMsgCountdown = true">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Whats-App"
+          name="whatsapp"
+          [(ngModel)]="personInfo.whatsapp"
+          maxlength="50"
+          (click)="hideConfirmationMsgCountdown = true">
+        <button
+          class="form__button-web"
+          (click)="onSubmit()"
+          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
+            OK
+        </button>
+        <button
+          class="form__button-mobile"
+          (click)="onSubmit()"
+          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
+            Eu quero!
+        </button>
+      </form>
     </div>
-    <h2 class="countdown__sub-title">Preencha e receba em primeira mão a prá-venda do livro.</h2>
-    <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">Obrigado! Nossa equipe entrará em contato com você em breve.</h2>
-
-    <form class="form">
-      <input class="form__input" type="text" placeholder="Nome" name="nome" [(ngModel)]="personInfo.name" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
-      <input class="form__input" type="text" placeholder="E-mail" name="email" [(ngModel)]="personInfo.email" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
-      <input class="form__input" type="text" placeholder="Whats-App" name="whatsapp" [(ngModel)]="personInfo.whatsapp" maxlength="50" (click)="hideConfirmationMsgCountdown = true">
-      <button
-        class="form__button"
-        (click)="onSubmit()"
-        [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
-          OK
-      </button>
-    </form>
-  </div>
 
 </section>
 
@@ -86,7 +120,7 @@
   <div class="talk">
     <img class="talk__image" src="../assets/pictures/palestra.svg" alt="Capa do livro seja o amor da sua vida">
     <div class="contact">
-      <h1 class="contact__title">NAS ESCOLAS OU EMPRESAS</h1>
+      <h1 class="contact__title">Nas escolas ou empresas</h1>
       <h2 class="contact__content">
         Vamos falar sobre a importância do amor-próprio
         <br> na sua escola ou na sua empresa?
@@ -139,8 +173,8 @@
 
   <iframe
     class="video"
-    width="1120"
-    height="630"
+    width="740"
+    height="420"
     src="https://www.youtube.com/embed/kBuD6J7FuKs"
     frameborder="0"
     allow="
