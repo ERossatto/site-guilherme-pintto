@@ -22,8 +22,8 @@
     @include mobile {
       position: absolute;
       top: -5vh;
-      right: -10vw;
-      content: url(../assets/mobile/autor.png);
+      right: 0vw;
+      content: url(../assets/mobile/autorMobile.png);
     }
   }
 
@@ -68,6 +68,7 @@
       @include mobile {
         font-size: 12px;
         line-height: 1rem;
+        align-self: center;
       }
       font-family: 'Source Sans Pro', sans-serif;
       text-align: left;
