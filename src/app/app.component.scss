@@ -13,7 +13,7 @@
     width: 100vw;
   }
   background-size: cover;
-  background-color: yellowgreen; //auxiliador
+  background-color: $gray-light; //auxiliador
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -32,7 +32,6 @@
       width: 100vw;
       margin-top: 10vh;
     }
-    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 15vh;
@@ -82,7 +81,6 @@
       width: 100vw;
       align-items: center;
     }
-    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 10vh;
@@ -95,7 +93,6 @@
       @include mobile {
         width: 100%;
       }
-      background-color: salmon; //auxiliar
       margin-top: 10vh;
       display: flex;
       justify-content: space-between;
@@ -127,7 +124,7 @@
         }
       }
 
-      .media-icons {
+      .media-icons-web {
         @include mobile {
           display: none;
         }
@@ -149,7 +146,6 @@
       margin-top: 10vh;
       margin-bottom: 0vh;
     }
-    background-color: purple; //auxiliar
     display: flex;
     flex-direction: column;
     margin-top: 14vh;
@@ -186,6 +182,7 @@
         transform: scale(.5) translate(-50%, -50%);
         width: fit-content;
         margin-bottom: -15vh; // gambiarra
+        margin-left: 4.5vw; // gambiarra
       }
       background-color: $white;
       border-radius: $radius-large;
@@ -335,7 +332,8 @@
     justify-content: center;
     &__close {
       @include mobile { // gambiarra
-        top: -34vh;
+        top: -46vh;
+        right: -20vw;
       }
       position: relative;
       @extend %button-config;
@@ -349,8 +347,8 @@
     }
     &__form {
       @include mobile { // gambiarra
-        width: 70vw;
-        transform: translate(-30%, -15%);
+        width: 80vw;
+        transform: translate(-28%, -40%);
       }
       display: flex;
       flex-direction: column;
@@ -397,9 +395,27 @@
 
   .video {
     margin: 10vh 0vw;
+    &--web {
+      @include mobile {
+        display: none;
+      }
+    }
+    &--mobile {
+      @include web {
+        display: none;
+      }
+    }
   }
 
-
+  .media-icons-mobile {
+    @include web {
+      display: none;
+    }
+    width: 75vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+  }
 }
 
 
