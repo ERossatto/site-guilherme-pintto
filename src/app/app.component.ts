@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import * as moment from 'moment';
+
+import { EmailFormat } from './email.interface';
 
 @Component({
   selector: 'app-root',
@@ -39,9 +42,60 @@ export class AppComponent implements OnInit {
     content: ''
   }
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+  }
+
+  private _sendMail(emailbody: EmailFormat): void {
+    const url ='https://us-central1-site-guilherme-pintto-63073.cloudfunctions.net/emailSender';
+    this.http.post(url, emailbody).subscribe(
+      data => {
+        console.info('success-->: ', data);
+      },
+      error => {
+        console.error('error-->: ', error);
+      }
+    );
+  }
+
+  private _cleanPersonInfo(): void {
+    this.personInfo.name = '';
+    this.personInfo.email = '';
+    this.personInfo.whatsapp = '';
+  }
+
+  private _showConfirmationMsgPreSale(): void {
+    this.hideConfirmationMsgCountdown = false;
+  }
+
+  private _showConfirmationMsgContact(): void {
+    this.hideConfirmationMsgContact = false;
+  }
+
+  private _emailBodyFactory(subject: string, html: string): EmailFormat {
+    const emailBody: EmailFormat = {
+      from: 'Site Guilherme Pintto',
+      to: ['ettore.rossatto@ciadaconsulta.com.br'],
+      subject: subject,
+      html: html
+    }
+    return emailBody;
+  }
+
+  public submitPreSale(): void {
+    const emailSubject = 'Cadastro pré-venda';
+    const emailHtml = `
+      <div><b>Enviado por: </b>"${this.personInfo.name}"</div>
+      <div><b>Email: </b>"${this.personInfo.email}"</div>
+      <div><b>Whatsapp: </b>"${this.personInfo.whatsapp}"</div>
+    `;
+    const emailBody = this._emailBodyFactory(emailSubject, emailHtml);
+    this._sendMail(emailBody);
+    this._cleanPersonInfo();
+    this._showConfirmationMsgPreSale();
   }
 
   public countdownTimer(value: string): string {
@@ -57,14 +111,6 @@ export class AppComponent implements OnInit {
     };
   }
 
-  public onSubmit(): void {
-    console.log('-->: ', this.personInfo);
-    this.hideConfirmationMsgCountdown = false;
-    this.personInfo.name = '';
-    this.personInfo.email = '';
-    this.personInfo.whatsapp = '';
-  }
-
   public openContactForm(): void {
     this.showContactPopup = true;
   }
@@ -78,9 +124,19 @@ export class AppComponent implements OnInit {
     this.contactMessage.phone = '';
   }
 
-  public sendContactMessage(): void {
-    this.contactMessage.content = this.textArea.nativeElement.value; // technical adjustment :X
-    this.hideConfirmationMsgContact = false;
-    console.log('-->: ', this.contactMessage);
+  public submitContactMessage(): void {
+    this.contactMessage.content = this.textArea.nativeElement.value;
+
+    const emailSubject = 'Contato';
+    const emailHtml = `
+      <div><b>Enviado por: </b>"${this.contactMessage.name}"</div>
+      <div><b>Email: </b>"${this.contactMessage.email}"</div>
+      <div><b>Telefone: </b>"${this.contactMessage.phone}"</div>
+      <div><b>Mensagem: </b><br>"${this.contactMessage.content}"</div>
+    `;
+    const emailBody = this._emailBodyFactory(emailSubject, emailHtml);
+
+    this._sendMail(emailBody);
+    this._showConfirmationMsgContact()
   }
 }

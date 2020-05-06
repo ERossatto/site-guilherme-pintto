@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "site-guilherme-pintto-63073"
+  },
+  "targets": {
+    "site-guilherme-pintto-63073": {
+      "hosting": {
+        "site-guilherme-pintto": [
+          "site-guilherme-pintto-63073"
+        ]
+      }
+    }
   }
 }

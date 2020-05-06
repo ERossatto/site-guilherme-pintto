@@ -68,12 +68,11 @@
         </div>
       </div>
       <h2 class="countdown__sub-title countdown__sub-title--black">
-        Preencha e receba em primeira mão a prá-venda do livro.
+        Preencha e receba em primeira mão a pré-venda do livro.
       </h2>
       <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">
         Obrigado! Nossa equipe entrará em contato com você em breve.
       </h2>
-
       <form class="form">
         <input
           class="form__input"
@@ -101,14 +100,14 @@
           (click)="hideConfirmationMsgCountdown = true">
         <button
           class="form__button-web"
-          (click)="onSubmit()"
-          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
+          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')"
+          (click)="submitPreSale()">
             OK
         </button>
         <button
           class="form__button-mobile"
-          (click)="onSubmit()"
-          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')">
+          [disabled]="(personInfo.name == '') || (personInfo.email == '') || (personInfo.whatsapp =='')"
+          (click)="submitPreSale()">
             Eu quero!
         </button>
       </form>
@@ -165,7 +164,7 @@
       <button
         class="popup__button"
         [disabled]="((contactMessage.name == '') || (contactMessage.email == '') || (contactMessage.phone == ''))"
-        (click)="sendContactMessage()">
+        (click)="submitContactMessage()">
           Enviar
       </button>
     </form>

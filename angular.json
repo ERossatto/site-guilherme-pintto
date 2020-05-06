@@ -122,8 +122,13 @@
               "devServerTarget": "site-guilherme-pintto:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "site-guilherme-pintto"
 }

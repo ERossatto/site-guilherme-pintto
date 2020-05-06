@@ -10,32 +10,41 @@
     padding-left: 25vw;
   }
   @include mobile {
+    position: relative;
+    top: 35vh;
+    background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
+    background-position-y: top;
+    background-size: 110vw auto;
     width: 100vw;
   }
   background-size: cover;
-  background-color: $gray-light; //auxiliador
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   &::after {
     @include mobile {
+      content: url(../assets/mobile/autorMobile2.png);
       position: absolute;
-      top: -5vh;
+      z-index: -1;
+      top: -14rem;
       right: 0vw;
-      content: url(../assets/mobile/autorMobile.png);
     }
   }
 
   .autor {
     @include mobile {
+      transform: scale(.9);
       width: 100vw;
-      margin-top: 10vh;
+      margin-top: -22vh;
     }
     display: flex;
     flex-direction: column;
     margin-top: 15vh;
     &__title {
+      @include mobile {
+        height: 25vh;
+      }
       display: flex;
       flex-direction: column;
       height: 22vh;
@@ -66,8 +75,8 @@
 
     &__description {
       @include mobile {
-        font-size: 12px;
-        line-height: 1rem;
+        font-size: 13px;
+        line-height: 1.2rem;
         align-self: center;
       }
       font-family: 'Source Sans Pro', sans-serif;
@@ -79,8 +88,13 @@
 
   .books {
     @include mobile {
+      transform: scale(.9);
       width: 100vw;
       align-items: center;
+      margin-top: 0vh;
+    }
+    @include mobile-plus {
+      margin-top: 1.5rem;
     }
     display: flex;
     flex-direction: column;
@@ -92,7 +106,9 @@
 
     &__content {
       @include mobile {
+        justify-content: space-around;
         width: 100%;
+        margin-top: 1rem;
       }
       margin-top: 10vh;
       display: flex;
@@ -100,6 +116,7 @@
       align-items: center;
       width: 70vw;
       .item {
+        $book-mobile-width: 28vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -109,11 +126,16 @@
           }
         }
         &__image-mobile {
+          width: $book-mobile-width;
           @include web {
             display: none;
           }
         }
         &__button {
+          @include mobile {
+            width: $book-mobile-width;
+            margin-top: 2vh;
+          }
           margin-top: 4vh;
           &--one {
             @extend %white-button;
@@ -143,9 +165,13 @@
 
   .countdown {
     @include mobile {
+      transform: scale(.8);
       width: 100%;
-      margin-top: 10vh;
+      margin-top: -1.5rem;
       margin-bottom: 0vh;
+    }
+    @include mobile-plus {
+      margin-top: 0rem;
     }
     display: flex;
     flex-direction: column;
@@ -158,13 +184,16 @@
     }
     &__sub-title {
       @include mobile {
-        font-size: 10px
+        font-size: 11px
       }
       margin: 1rem 0rem;
       color: $white;
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: 500;
       &--centralized {
+        @include mobile {
+          margin: .5rem 0rem;
+        }
         align-self: center;
       }
       &--black {
@@ -182,8 +211,11 @@
       @include mobile {
         transform: scale(.5) translate(-50%, -50%);
         width: fit-content;
-        margin-bottom: -15vh; // gambiarra
-        margin-left: 4.5vw; // gambiarra
+        margin-bottom: -1rem;
+        margin-left: 0.75rem;
+      }
+      @include mobile-plus {
+        margin-left: 2rem;
       }
       background-color: $white;
       border-radius: $radius-large;
@@ -231,6 +263,7 @@
         @include mobile {
           width: 80vw;
           margin-bottom: .5rem;
+          min-height: 2.5rem;
         }
         border-radius: $radius-small;
         border: thin solid $black;
@@ -266,6 +299,9 @@
 }
 
 .section-two {
+  @include mobile {
+    margin-top: 32vh;
+  }
   margin-top: 8vh;
 
   display: flex;
@@ -276,7 +312,7 @@
   .talk {
     @include mobile {
       flex-direction: column;
-      height: 70vh;
+      height: 30rem;
     }
     display: flex;
     justify-content: space-between;
@@ -294,7 +330,7 @@
       @include mobile {
         align-items: center;
       }
-      height: 30vh;
+      height: 10rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -333,8 +369,8 @@
     justify-content: center;
     &__close {
       @include mobile { // gambiarra
-        top: -46vh;
-        right: -20vw;
+        // top: -46vh;
+        right: -42vw;
       }
       position: relative;
       @extend %button-config;
@@ -349,7 +385,8 @@
     &__form {
       @include mobile { // gambiarra
         width: 80vw;
-        transform: translate(-28%, -40%);
+        min-height: 21rem;
+        // transform: translate(-28%, -40%);
       }
       display: flex;
       flex-direction: column;
@@ -366,10 +403,14 @@
       border: none;
       border-radius: $radius-small;
       &--headers {
+        @include mobile {
+          min-height: 2rem;
+        }
         min-height: 1.5rem;
         width: -webkit-fill-available;
       }
       &--message {
+        min-height: 7rem;
         height: -webkit-fill-available;
         width: -webkit-fill-available;
       }
