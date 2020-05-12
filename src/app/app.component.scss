@@ -4,15 +4,16 @@
 @import "../variables.scss";
 
 .section-one {
+  background-color: $gray-light; //auxiliar
   @include web() {
-    background: url("../assets/pictures/background.png") no-repeat;
+    // background: url("../assets/pictures/background.png") no-repeat;
     background-size: cover;
     padding-left: 25vw;
   }
   @include mobile {
     position: relative;
     top: 35vh;
-    background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
+    // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
     background-position-y: top;
     background-size: 110vw auto;
     width: 100vw;
@@ -52,24 +53,18 @@
       &--first {
         @extend %font-oswald;
       }
-      &--second-web {
-        @include web() {
-          display: block;
+      &--second {
+        @include mobile {
           position: relative;
-          top: -1rem;
-          left: 11rem;
-          width: 12rem;
-        }
-        display: none;
-      }
-      &--second-mobile {
-        @include web() {
-          display: none;
+          transform: scale(.6);
+          top: -1.75rem;
+          left: 3.25rem;;
         }
         position: relative;
-        top: -.25rem;
-        left: -2.5rem;
-        transform: scale(1.25);
+        top: -1rem;
+        left: 10.5rem;
+        width: 12rem;
+        transform: scale(1.05);
       }
     }
 
@@ -270,11 +265,7 @@
         width: 11.5rem;
         height: 2.25rem;
         &::placeholder {
-          background-color: $white;
-          font-family: 'Source Sans Pro', sans-serif;
-          font-size: 1rem;
-          color: $black;
-          padding-left: .5rem;
+          @extend %placeholder-default;
         }
       }
       &__button-web {
@@ -367,26 +358,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &__close {
-      @include mobile { // gambiarra
-        // top: -46vh;
-        right: -42vw;
-      }
-      position: relative;
-      @extend %button-config;
-      border-radius: $radius-large;
-      top: -26vh;
-      right: -16vw;
-      background-color: $gray-light;
-      color: $gray-dark;
-      height: 2rem;
-      width: 2rem;
-    }
     &__form {
-      @include mobile { // gambiarra
-        width: 80vw;
-        min-height: 21rem;
-        // transform: translate(-28%, -40%);
+      @include mobile {
+        width: 75vw;
       }
       display: flex;
       flex-direction: column;
@@ -394,9 +368,20 @@
       align-items: flex-start;
       background-color: $blue;
       border-radius: $radius-large;
-      height: 50vh;
-      width: 30vw;
+      height: 60vh;
+      width: 40vw;
       position: absolute;
+    }
+    &__close {
+      @extend %button-config;
+      position: absolute;
+      border-radius: $radius-large;
+      top: -1.5rem;
+      right: -1.5rem;
+      background-color: $gray-light;
+      color: $gray-dark;
+      height: 2rem;
+      width: 2rem;
     }
     &__input {
       margin: 1rem 1rem 0rem 1rem;
@@ -415,11 +400,7 @@
         width: -webkit-fill-available;
       }
       &::placeholder {
-        background-color: $white;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 1rem;
-        color: $gray-dark;
-        padding-left: .5rem;
+        @extend %placeholder-default;
       }
     }
     &__confirmation-msg {

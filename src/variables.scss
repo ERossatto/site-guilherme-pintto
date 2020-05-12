@@ -133,3 +133,12 @@ $radius-large: 15px;
   font-size: 18px;
 }
 
+%placeholder-default {
+  overflow: visible;
+  background-color: $white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  color: $gray-dark;
+  padding-left: .5rem;
+}
+

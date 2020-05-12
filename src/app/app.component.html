@@ -3,18 +3,26 @@
     <div class="autor">
       <div class="autor__title">
         <h1 class="autor__title--first">GUILHERME</h1>
-        <img class="autor__title--second-web" src="../assets/pictures/secondName.svg" alt="sobrenome do autor">
-        <img class="autor__title--second-mobile" src="../assets/mobile/secondNameMobile.svg" alt="sobrenome do autor">
+        <!-- <img class="autor__title--second" src="../assets/pictures/secondName.svg" alt="sobrenome do autor"> -->
+        <img class="autor__title--second" src="../assets/mobile/secondNameMobile.svg" alt="sobrenome do autor">
       </div>
 
       <h2 class="autor__description">
-        Comunicador e Escritor gaúcho autor do best-seller "Seja o
-        <br>amor da sua vida" e do "O óbvio também precisa ser dito", pela
-        <br>Editora Planeta. Eleito como 2º melhor cronista no concurso
-        <br>literário nacional Felippe D’Oliveira, em Santa Maria.
-        <br>Atualmente, estudante de psicologia, Guilherme propaga a
-        <br>importância do amor-próprio em suas redes sociais para mais
-        <br>de 1 milhão de seguidores e nos palcos Brasil afora.
+        Gaúcho, tem 26 anos e acumula títulos: escritor, comunicador,
+        <br> produtor de conteúdo e palestrante. Com ‘Seja o amor da sua vida’,
+        <br> seu primeiro livro, tornou-se best-seller com mais de 70
+        <br> mil exemplares vendidos em menos de 2 anos. Além disso,
+        <br> também entrou para a lista de livros mais vendidos no Brasil
+        <br> em 2018 segundo o PublishNews. No mesmo ano, com sua
+        <br> peça homônima, lotou teatros em uma turnê que passou por
+        <br> várias cidades, contando como ultrapassou as barreiras do
+        <br> abuso psicológico e da violência doméstica sofridos por ele
+        <br> e sua mãe até a metade da sua adolescência. Em 2019, foi um
+        <br> dos palestrantes do TEDxParqueDoIngá onde falou sobre a
+        <br> construção do amor-próprio através de suas próprias
+        <br> experiências, assim como vem fazendo para mais de 1 milhão
+        <br> de pessoas em suas redes sociais. Em 2020, Guilherme Pintto
+        <br> se prepara para lançar o seu terceiro livro.
       </h2>
     </div>
 
@@ -27,13 +35,13 @@
         <div class="item">
           <img class="item__image-web" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
           <img class="item__image-mobile" src="../assets/mobile/livro1mobile.png" alt="capa do livro O óbvio também precisa ser dito">
-          <a [href]="links.bookOneLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--one">Comprar</button></a>
+          <a [href]="links.bookOneLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--one">COMPRAR</button></a>
         </div>
 
         <div class="item">
           <img class="item__image-web" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
           <img class="item__image-mobile" src="../assets/mobile/livro2mobile.png" alt="capa do livro Seja o amor da sua vida">
-          <a [href]="links.bookTwoLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--two">Comprar</button></a>
+          <a [href]="links.bookTwoLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--two">COMPRAR</button></a>
         </div>
 
         <div class="media-icons-web">
@@ -49,7 +57,7 @@
     <div class="countdown">
       <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
       <h2 class="countdown__sub-title countdown__sub-title--centralized">
-        SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO! PRÉ-VENDA EM 20 DE MAIO.
+        SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO!
       </h2>
       <div class="countdown__watch">
         <div class="watch">
@@ -68,7 +76,7 @@
         </div>
       </div>
       <h2 class="countdown__sub-title countdown__sub-title--black">
-        Preencha e receba em primeira mão a pré-venda do livro.
+        Preencha e receba em primeira mão todas as informações sobre o próximo livro.
       </h2>
       <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">
         Obrigado! Nossa equipe entrará em contato com você em breve.
@@ -124,13 +132,13 @@
         Vamos falar sobre a importância do amor-próprio
         <br> na sua escola ou na sua empresa?
       </h2>
-      <button class="contact__button" (click)="openContactForm()">Entrar em contato</button>
+      <button class="contact__button" (click)="openContactForm()">ENTRAR EM CONTATO</button>
     </div>
   </div>
 
   <div class="popup white-bg" *ngIf="showContactPopup">
-    <button class="popup__close" (click)="closeContactPopup()">X</button>
     <form class="popup__form">
+      <button class="popup__close" (click)="closeContactPopup()">X</button>
       <input
         class="popup__input popup__input--headers"
         type="text"
@@ -157,7 +165,7 @@
         class="popup__input popup__input--message"
         [rows]="10"
         [cols]="5"
-        [maxLength]="1000"
+        [maxLength]="2000"
         placeholder="Digite sua mensagem aqui..."
       ></textarea>
       <h2 [hidden]="hideConfirmationMsgContact" class="popup__confirmation-msg">Sua mensagem foi enviada com sucesso.</h2>
@@ -165,7 +173,7 @@
         class="popup__button"
         [disabled]="((contactMessage.name == '') || (contactMessage.email == '') || (contactMessage.phone == ''))"
         (click)="submitContactMessage()">
-          Enviar
+          ENVIAR
       </button>
     </form>
   </div>
@@ -174,7 +182,7 @@
     class="video video--web"
     width="740"
     height="420"
-    src="https://www.youtube.com/embed/kBuD6J7FuKs"
+    src="https://www.youtube.com/embed/XEX_c7Ru5_c"
     frameborder="0"
     allow="
       accelerometer;
@@ -190,7 +198,7 @@
     class="video video--mobile"
     width="370"
     height="210"
-    src="https://www.youtube.com/embed/kBuD6J7FuKs"
+    src="https://www.youtube.com/embed/XEX_c7Ru5_c"
     frameborder="0"
     allow="
       accelerometer;
