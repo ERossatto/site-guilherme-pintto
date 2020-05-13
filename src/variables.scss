@@ -4,6 +4,7 @@ $gray-light: #E6E5E5;
 $gray-dark:#656565;
 $gray-deep:#404040;
 $blue: #29AEDD;
+$blue-deep: #2396BE;
 $green: #72f542;
 $black: #000000;
 $radius-small: 4px;
@@ -91,7 +92,7 @@ $radius-large: 15px;
   }
 }
 
-%button-config {
+%button-reset {
   cursor: pointer;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -105,10 +106,10 @@ $radius-large: 15px;
     height: 1.5rem;
     font-size: 10px;
   }
-  @extend %button-config;
+  @extend %button-reset;
   border-radius: $radius-small;
   width: 15rem;
-  height: 2.5rem;
+  height: 2.6rem;
   font-weight: bold;
   font-size: 15px;
 }

@@ -14,9 +14,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild('textArea', {static: false}) textArea: ElementRef;
 
-  private _nowDate = moment().format("DD/MM/YYYY hh");
-  private _launchDate = moment('20/05/2020 00:00', "DD/MM/YYYY hh");
-
   public links = {
     youtubeLink:  'https://www.youtube.com/user/guipintto',
     instagramLink: 'https://www.instagram.com/guipintto/',
@@ -99,15 +96,25 @@ export class AppComponent implements OnInit {
   }
 
   public countdownTimer(value: string): string {
-    const timeDifference = moment(this._launchDate, "DD/MM/YYYY hh").diff(moment( this._nowDate, "DD/MM/YYYY hh"));
+    const nowDate = moment(moment(), "DD/MM/YYYY HH");
+    const launchDate = moment('20/09/2020 00', "DD/MM/YYYY HH");
+    const endOfMOnth = moment(nowDate).endOf('month');
+
+    const monthsRemaining = launchDate.diff(nowDate, 'month');
+
+    let daysToSubtract = ( launchDate.diff(nowDate, 'month') < 1 ) ? launchDate : endOfMOnth;
+    const daysRemaining = daysToSubtract.diff(nowDate, 'day');
+
+    let hoursToSubtract = ( launchDate.diff(nowDate, 'hour') < 24 ) ? launchDate : moment(nowDate).endOf('day');
+    const hoursRemaining = hoursToSubtract.diff(nowDate, 'hour');
 
     switch (value) {
       case 'months':
-        return (moment.utc(timeDifference).month() > 0) ? moment.utc(timeDifference).month().toString() : '00';
+        return ( monthsRemaining < 10 ) ? `0${monthsRemaining}` : `${monthsRemaining}`;
       case 'days':
-        return moment.utc(timeDifference).format("DD");
+        return ( daysRemaining < 10 ) ? `0${daysRemaining}` : `${daysRemaining}`;
       case 'hours':
-        return moment.utc(timeDifference).format("hh");
+        return ( hoursRemaining < 10 ) ? `0${hoursRemaining}` : `${hoursRemaining}`;
     };
   }
 

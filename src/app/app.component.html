@@ -56,27 +56,37 @@
 
     <div class="countdown">
       <h1 class="countdown__title">NOVO LIVRO EM BREVE</h1>
-      <h2 class="countdown__sub-title countdown__sub-title--centralized">
+      <h2 class="countdown__sub-title">
         SEJA UM DOS PRIMEIROS A LER O PRÓXIMO LIVRO!
       </h2>
       <div class="countdown__watch">
         <div class="watch">
-          <p class="watch__pointer">{{ countdownTimer('months') }}</p>
-          <p class="watch__name">meses</p>
+          <p class="watch__name">- MESES -</p>
+          <div style="display: flex;">
+            <p class="watch__pointer">{{ countdownTimer('months').substring(0,1) }}</p>
+            <p class="watch__pointer">{{ countdownTimer('months').substring(1,2) }}</p>
+          </div>
         </div>
         <div class="colon">:</div>
         <div class="watch">
-          <p class="watch__pointer">{{ countdownTimer('days') }}</p>
-          <p class="watch__name">dias</p>
+          <p class="watch__name">- DIAS -</p>
+          <div style="display: flex;">
+            <p class="watch__pointer">{{ countdownTimer('days').substring(0,1) }}</p>
+            <p class="watch__pointer">{{ countdownTimer('days').substring(1,2) }}</p>
+          </div>
         </div>
         <div class="colon">:</div>
         <div class="watch">
-          <p class="watch__pointer">{{ countdownTimer('hours') }}</p>
-          <p class="watch__name">horas</p>
+          <p class="watch__name">- HORAS -</p>
+          <div style="display: flex;">
+            <p class="watch__pointer">{{ countdownTimer('hours').substring(0,1) }}</p>
+            <p class="watch__pointer">{{ countdownTimer('hours').substring(1,2) }}</p>
+          </div>
         </div>
       </div>
       <h2 class="countdown__sub-title countdown__sub-title--black">
-        Preencha e receba em primeira mão todas as informações sobre o próximo livro.
+        Preencha e receba em primeira mão todas as informações sobre
+        <br> o próximo livro:
       </h2>
       <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">
         Obrigado! Nossa equipe entrará em contato com você em breve.
