@@ -5,20 +5,19 @@
 @import "../variables.scss";
 
 .section-one {
+  background-color: palevioletred; //auxiliar
   @include web() {
-    background: url("../assets/pictures/background.png") no-repeat;
-    background-size: cover;
-    padding-left: 25vw;
+    // background: url("../assets/pictures/background.png") no-repeat;
+    // background-size: cover;
+    // padding-left: 25vw;
     margin-top: 5rem;
-    // align-items: center;
   }
   @include mobile {
     position: relative;
-    top: 35vh;
+    top: 30vh;
   // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
   // background-position-y: top;
   // background-size: 110vw auto;
-    width: 100vw;
   }
   background-size: cover;
   display: flex;
@@ -30,16 +29,18 @@
     @include mobile {
       margin-top: -22vh;
     }
+    width: 100vw;
     display: flex;
     flex-direction: column;
     margin-top: -2.5rem;
     &__title {
       @include mobile {
-        height: 25vh;
+        height: 10rem;
+        padding-left: 2rem;
       }
       display: flex;
       flex-direction: column;
-      height: 22vh;
+      height: 9rem;
       &--first {
         @extend %font-oswald;
       }
@@ -59,40 +60,38 @@
 
     &__description {
       @include mobile {
-        font-size: 13px;
-        line-height: 1.2rem;
-        align-self: center;
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        line-height: 1rem;
+        width: 100vw;
+        padding: 1rem 0rem;
+      }
+      @include web {
+        padding-top: 2.5rem;
       }
       font-family: 'Source Sans Pro', sans-serif;
       text-align: left;
       font-size: 20px;
       line-height: 1.5rem;
     }
-
-    &__picture {
-      @include web {
-        display: none;
-      }
-      position: absolute;
-      top: -13.75rem;
-      right: 0vw;
-      width: 45vw;
-    }
   }
 
   .books {
     @include mobile {
       width: 100vw;
+      height: 75vw;
       align-items: center;
-      margin-top: 0vh;
     }
     @include mobile-plus {
       margin-top: 1.5rem;
     }
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
     &__title {
+      @include mobile {
+        padding-left: 2rem;
+      }
       @extend %font-oswald;
       align-self: flex-start;
     }
@@ -116,7 +115,7 @@
         &__image {
           width: $book-mobile-width;
           @include web {
-            width: 17vw;
+            width: 13rem;
           }
         }
         &__button {
@@ -152,22 +151,21 @@
 
   .countdown {
     @include mobile {
-      width: 100%;
-      margin-top: 0rem;
+      width: 100vw;
+    }
+    @include web {
+      // width: 100vw;
     }
     display: flex;
     flex-direction: column;
-    margin-top: 14vh;
-    margin-bottom: 6vh;
-
     &__title {
-      align-self: center;
       @extend %font-oswald;
+      align-self: center;
     }
     &__sub-title {
       @include mobile {
         font-size: 11px;
-        margin: 1rem 0rem;
+        margin: .5rem 0rem;
       }
       font-size: 20px;
       margin: 2rem 0rem;
@@ -190,7 +188,7 @@
     }
     &__watch {
       @include mobile {
-        transform: scale(.5) translate(0%, -50%);
+        transform: scale(.45) translate(0%, -50%);
         margin-bottom: -7vh;
       }
       @include mobile-plus {
@@ -241,11 +239,14 @@
       }
       display: flex;
       justify-content: space-between;
+      width: 41rem; //teste
+      align-self: center; //teste
       &__input {
         @include mobile {
           width: 80vw;
           margin-bottom: .5rem;
           min-height: 2.5rem;
+          border: thin solid $black;
         }
         border-radius: $radius-small;
         border: none;
@@ -280,7 +281,7 @@
   @include mobile {
     margin-top: 40vh;
   }
-  margin-top: 8vh;
+  margin-top: 5vh;
 
   display: flex;
   flex-direction: column;
