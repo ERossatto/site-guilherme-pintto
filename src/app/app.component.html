@@ -3,8 +3,8 @@
     <div class="autor">
       <div class="autor__title">
         <h1 class="autor__title--first">GUILHERME</h1>
-        <!-- <img class="autor__title--second" src="../assets/pictures/secondName.svg" alt="sobrenome do autor"> -->
         <img class="autor__title--second" src="../assets/mobile/secondNameMobile.svg" alt="sobrenome do autor">
+        <img class="autor__picture" src="../assets/mobile/autor.png" alt="foto do autor">
       </div>
 
       <h2 class="autor__description">
@@ -33,14 +33,12 @@
       <div class="books__content">
 
         <div class="item">
-          <img class="item__image-web" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
-          <img class="item__image-mobile" src="../assets/mobile/livro1mobile.png" alt="capa do livro O óbvio também precisa ser dito">
+          <img class="item__image" src="../assets/pictures/livro1.png" alt="capa do livro O óbvio também precisa ser dito">
           <a [href]="links.bookOneLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--one">COMPRAR</button></a>
         </div>
 
         <div class="item">
-          <img class="item__image-web" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
-          <img class="item__image-mobile" src="../assets/mobile/livro2mobile.png" alt="capa do livro Seja o amor da sua vida">
+          <img class="item__image" src="../assets/pictures/livro2.png" alt="capa do livro Seja o amor da sua vida">
           <a [href]="links.bookTwoLink" target="_blank" rel="noopener noreferrer"><button class="item__button item__button--two">COMPRAR</button></a>
         </div>
 
@@ -85,8 +83,7 @@
         </div>
       </div>
       <h2 class="countdown__sub-title countdown__sub-title--black">
-        Preencha e receba em primeira mão todas as informações sobre
-        <br> o próximo livro:
+        Preencha e receba em primeira mão todas as informações sobre o próximo livro:
       </h2>
       <h2 [hidden]="hideConfirmationMsgCountdown" class="countdown__confirmation-msg">
         Obrigado! Nossa equipe entrará em contato com você em breve.

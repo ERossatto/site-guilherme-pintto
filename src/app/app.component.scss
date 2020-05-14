@@ -5,18 +5,19 @@
 @import "../variables.scss";
 
 .section-one {
-  background-color: #29dddd; //auxiliar
   @include web() {
-    // background: url("../assets/pictures/background.png") no-repeat;
+    background: url("../assets/pictures/background.png") no-repeat;
     background-size: cover;
     padding-left: 25vw;
+    margin-top: 5rem;
+    // align-items: center;
   }
   @include mobile {
     position: relative;
     top: 35vh;
-    // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
-    background-position-y: top;
-    background-size: 110vw auto;
+  // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
+  // background-position-y: top;
+  // background-size: 110vw auto;
     width: 100vw;
   }
   background-size: cover;
@@ -24,25 +25,14 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  &::after {
-    @include mobile {
-      content: url(../assets/mobile/autorMobile2.png);
-      position: absolute;
-      z-index: -1;
-      top: -14rem;
-      right: 0vw;
-    }
-  }
 
   .autor {
     @include mobile {
-      transform: scale(.9);
-      width: 100vw;
       margin-top: -22vh;
     }
     display: flex;
     flex-direction: column;
-    margin-top: 15vh;
+    margin-top: -2.5rem;
     &__title {
       @include mobile {
         height: 25vh;
@@ -50,22 +40,20 @@
       display: flex;
       flex-direction: column;
       height: 22vh;
-      padding-bottom: 2vh;
       &--first {
         @extend %font-oswald;
       }
       &--second {
         @include mobile {
           position: relative;
-          transform: scale(.6);
-          top: -1.75rem;
-          left: 3.25rem;;
+          top: -0.65rem;
+          left: 5.65rem;
+          width: 7rem;
         }
         position: relative;
-        top: -1rem;
-        left: 10.5rem;
-        width: 12rem;
-        transform: scale(1.05);
+        top: -1.125rem;
+        left: 9rem;
+        width: 11rem;
       }
     }
 
@@ -80,11 +68,20 @@
       font-size: 20px;
       line-height: 1.5rem;
     }
+
+    &__picture {
+      @include web {
+        display: none;
+      }
+      position: absolute;
+      top: -13.75rem;
+      right: 0vw;
+      width: 45vw;
+    }
   }
 
   .books {
     @include mobile {
-      transform: scale(.9);
       width: 100vw;
       align-items: center;
       margin-top: 0vh;
@@ -116,15 +113,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        &__image-web {
-          @include mobile {
-            display: none;
-          }
-        }
-        &__image-mobile {
+        &__image {
           width: $book-mobile-width;
           @include web {
-            display: none;
+            width: 17vw;
           }
         }
         &__button {
@@ -137,7 +129,6 @@
             @extend %white-button;
           }
           &--two {
-            border: thin solid $white;
             @extend %blue-button;
           }
         }
@@ -161,12 +152,7 @@
 
   .countdown {
     @include mobile {
-      transform: scale(.8);
       width: 100%;
-      margin-top: -1.5rem;
-      margin-bottom: 0vh;
-    }
-    @include mobile-plus {
       margin-top: 0rem;
     }
     display: flex;
@@ -181,7 +167,7 @@
     &__sub-title {
       @include mobile {
         font-size: 11px;
-        margin: .5rem 0rem;
+        margin: 1rem 0rem;
       }
       font-size: 20px;
       margin: 2rem 0rem;
@@ -195,6 +181,7 @@
           align-self: center;
           font-size: 14px;
           color: $black;
+          text-align: start;
         }
       }
     }
@@ -203,15 +190,14 @@
     }
     &__watch {
       @include mobile {
-        transform: scale(.5) translate(-50%, -50%);
-        width: fit-content;
-        margin-bottom: -1rem;
-        margin-left: 0.75rem;
+        transform: scale(.5) translate(0%, -50%);
+        margin-bottom: -7vh;
       }
       @include mobile-plus {
         margin-left: 2rem;
       }
       display: flex;
+      justify-content: center;
       font-family: 'Oswald', sans-serif;
 
       .watch {
@@ -292,7 +278,7 @@
 
 .section-two {
   @include mobile {
-    margin-top: 32vh;
+    margin-top: 40vh;
   }
   margin-top: 8vh;
 
