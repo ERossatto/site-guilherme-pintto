@@ -11,16 +11,16 @@
     padding-left: 25vw;
     padding-top: 2rem;
     margin-top: 4rem;
-    overflow-x: hidden;
   }
   @include mobile {
     position: relative;
-    top: 30vh;
+    // top: 30vh;
     background-color: #e234eb;
-  // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
-  // background-position-y: top;
-  // background-size: 110vw auto;
+    // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
+    // background-position-y: top;
+    // background-size: 110vw auto;
   }
+  overflow-x: hidden;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 
   .autor {
     @include mobile {
-      margin-top: -22vh;
+      margin-top: 0rem;
     }
     width: 100vw;
     display: flex;
@@ -67,7 +67,6 @@
         font-size: 11px;
         line-height: 1rem;
         width: 100vw;
-        padding: 1rem 0rem;
       }
       @include web {
         padding-top: 1rem;
@@ -84,6 +83,7 @@
       width: 100vw;
       height: 75vw;
       align-items: center;
+      margin-top: 7vh;
     }
     @include mobile-plus {
       margin-top: 1.5rem;
@@ -103,7 +103,6 @@
       @include mobile {
         justify-content: space-around;
         width: 100%;
-        margin-top: 1rem;
       }
       padding-top: 5rem;
       display: flex;
@@ -156,6 +155,7 @@
   .countdown {
     @include mobile {
       width: 100vw;
+      margin-top: 5rem;
     }
     @include web {
     }
@@ -181,10 +181,10 @@
       text-align: center;
       &--black {
         @include mobile {
-          align-self: center;
           font-size: 14px;
           color: $black;
           text-align: start;
+          padding: 0 1.125rem;
         }
       }
     }
@@ -284,7 +284,7 @@
 
 .section-two {
   @include mobile {
-    margin-top: 40vh;
+    margin-top: 0vh;
   }
   margin-top: 5vh;
 
