@@ -246,8 +246,8 @@
       }
       display: flex;
       justify-content: space-between;
-      width: 41rem; //teste
-      align-self: center; //teste
+      width: 41rem;
+      align-self: center;
       &__input {
         @include mobile {
           width: 80vw;
