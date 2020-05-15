@@ -35,21 +35,27 @@
     margin-top: -2.5rem;
     &__title {
       @include mobile {
-        padding-left: .5rem;
-        margin-top: 5rem;
+        padding-left: 2rem;
+        margin-top: 10vh;
+      }
+      @include mobile-plus {
+        height: 11rem;
       }
       display: flex;
       flex-direction: column;
       height: 9rem;
       &--first {
         @extend %font-oswald;
+        @include mobile {
+          font-size: 2rem;
+        }
       }
       &--second {
         @include mobile {
           position: relative;
           top: -0.65rem;
-          left: 5.65rem;
-          width: 7rem;
+          left: 4.65rem;
+          width: 5.5rem;
         }
         position: relative;
         top: -1.125rem;
@@ -59,16 +65,25 @@
     }
 
     &__description {
+
       @include mobile {
-        display: flex;
-        justify-content: center;
-        font-size: 11px;
-        line-height: .95rem;
-        width: 100vw;
-        margin-top: 2rem;
+        align-self: center;
+        font-size: 14px;
+        line-height: 1.125rem;
+        width: 80vw;
+        min-height: 41vh;
+        margin-top: 1rem;
+      }
+      @include mobile-small {
+        font-size: 13px;
+      }
+      @include mobile-plus {
+        font-size: 16px;
+        line-height: 1.25rem;
       }
       @include web {
         padding-top: 1rem;
+        width: 30rem;
       }
       font-family: 'Source Sans Pro', sans-serif;
       text-align: left;
@@ -82,7 +97,7 @@
       width: 100vw;
       height: 75vw;
       align-items: center;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
     @include mobile-plus {
       margin-top: 1.5rem;
@@ -103,7 +118,7 @@
       @include mobile {
         justify-content: space-around;
         width: 100%;
-        padding-top: 2rem;
+        padding-top: 1.5rem;
       }
       padding-top: 6rem;
       display: flex;
@@ -163,7 +178,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 10rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3vh;
     &__title {
       @extend %font-oswald;
       align-self: center;
@@ -200,6 +215,7 @@
       }
       @include mobile-plus {
         margin-left: 2rem;
+        margin-bottom: -5vh;
       }
       display: flex;
       justify-content: center;

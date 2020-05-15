@@ -10,6 +10,14 @@ $black: #000000;
 $radius-small: 4px;
 $radius-large: 15px;
 
+@mixin mobile-small {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 361px) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @media only screen
   and (min-device-width: 300px)
