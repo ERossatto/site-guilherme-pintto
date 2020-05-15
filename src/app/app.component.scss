@@ -14,11 +14,9 @@
   }
   @include mobile {
     position: relative;
-    // top: 30vh;
-    background-color: #e234eb;
-    // background: url("../assets/mobile/backgroundMobile.svg") no-repeat;
-    // background-position-y: top;
-    // background-size: 110vw auto;
+    background: url("../assets/mobile/bgMobile.png") no-repeat;
+    background-position-y: top;
+    background-size: 100vw auto;
   }
   overflow-x: hidden;
   background-size: cover;
@@ -37,8 +35,8 @@
     margin-top: -2.5rem;
     &__title {
       @include mobile {
-        height: 10rem;
-        padding-left: 2rem;
+        padding-left: .5rem;
+        margin-top: 5rem;
       }
       display: flex;
       flex-direction: column;
@@ -65,8 +63,9 @@
         display: flex;
         justify-content: center;
         font-size: 11px;
-        line-height: 1rem;
+        line-height: .95rem;
         width: 100vw;
+        margin-top: 2rem;
       }
       @include web {
         padding-top: 1rem;
@@ -83,7 +82,7 @@
       width: 100vw;
       height: 75vw;
       align-items: center;
-      margin-top: 7vh;
+      margin-top: 1rem;
     }
     @include mobile-plus {
       margin-top: 1.5rem;
@@ -94,6 +93,7 @@
     &__title {
       @include mobile {
         padding-left: 2rem;
+        font-size: 2rem;
       }
       @extend %font-oswald;
       align-self: flex-start;
@@ -103,8 +103,9 @@
       @include mobile {
         justify-content: space-around;
         width: 100%;
+        padding-top: 2rem;
       }
-      padding-top: 5rem;
+      padding-top: 6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -123,7 +124,7 @@
         &__button {
           @include mobile {
             width: $book-mobile-width;
-            margin-top: 2vh;
+            margin-top: .35rem;
           }
           margin-top: 4vh;
           &--one {
@@ -155,7 +156,7 @@
   .countdown {
     @include mobile {
       width: 100vw;
-      margin-top: 5rem;
+      margin-top: 0rem;
     }
     @include web {
     }
@@ -166,6 +167,7 @@
     &__title {
       @extend %font-oswald;
       align-self: center;
+      font-size: 2rem;
     }
     &__sub-title {
       @include mobile {
@@ -194,7 +196,7 @@
     &__watch {
       @include mobile {
         transform: scale(.45) translate(0%, -50%);
-        margin-bottom: -7vh;
+        margin-bottom: -10vh;
       }
       @include mobile-plus {
         margin-left: 2rem;
