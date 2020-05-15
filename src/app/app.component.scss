@@ -78,8 +78,13 @@
         font-size: 13px;
       }
       @include mobile-plus {
-        font-size: 16px;
+        font-size: 15.125px;
         line-height: 1.25rem;
+      }
+      @include mobile-ultra {
+        font-size: 15px;
+        line-height: 1.5rem;
+        margin-top: 1.5rem;
       }
       @include web {
         padding-top: 1rem;

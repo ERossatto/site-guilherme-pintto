@@ -33,6 +33,13 @@ $radius-large: 15px;
     @content;
   }
 }
+@mixin mobile-ultra {
+  @media only screen
+  and (min-device-width: 435px)
+  and (max-device-width: 767px) {
+    @content;
+  }
+}
 
 @mixin smartphones($orientation: portrait) {
 
