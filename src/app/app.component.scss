@@ -51,9 +51,9 @@
         height: 10rem;
       }
       @include smartphones(landscape-plus) {
-        height: 11rem;
+        height: 10rem;
         margin-top: 3rem;
-        padding-left: 10rem;
+        padding-left: 6rem;
       }
       display: flex;
       flex-direction: column;
@@ -110,7 +110,7 @@
       @include smartphones(landscape-plus) {
         width: 75vw;
         align-self: center;
-        font-size: 17px;
+        font-size: 16px;
       }
       @include web {
         padding-top: 1rem;
@@ -137,7 +137,7 @@
       height: 40vw;
     }
     @include smartphones(landscape-plus) {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
     display: flex;
     flex-direction: column;
