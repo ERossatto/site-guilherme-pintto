@@ -29,14 +29,14 @@ $radius-large: 15px;
 @mixin mobile-plus {
   @media only screen
   and (min-device-width: 400px)
-  and (max-device-width: 767px) {
+  and (max-device-width: 812px) {
     @content;
   }
 }
 @mixin mobile-ultra {
   @media only screen
   and (min-device-width: 435px)
-  and (max-device-width: 767px) {
+  and (max-device-width: 812px) {
     @content;
   }
 }
@@ -58,6 +58,15 @@ $radius-large: 15px;
 		and (orientation: landscape) {
 			@content;
 		}
+  }
+  // [solved] use max-width instead of max-device-width
+  @if $orientation == landscape-iphonex {
+    @media only screen
+    and (min-width: 800px)
+    and (max-width: 900px)
+    and (orientation: landscape) {
+      @content;
+    }
   }
 }
 

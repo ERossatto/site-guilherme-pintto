@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
   private _emailBodyFactory(subject: string, html: string): EmailFormat {
     const emailBody: EmailFormat = {
       from: 'Site Guilherme Pintto',
-      to: ['ettore.rossatto@ciadaconsulta.com.br', 'guilhermepintto@gmail.com'],
+      to: ['guilhermepintto@gmail.com'],
       subject: subject,
       html: html
     }

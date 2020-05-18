@@ -50,6 +50,9 @@
         padding-top: 3rem;
         height: 10rem;
       }
+      @include smartphones(landscape-iphonex) {
+        height: 15rem;
+      }
       display: flex;
       flex-direction: column;
       height: 9rem;
@@ -102,6 +105,9 @@
         line-height: 1.5rem;
         margin-top: 1.5rem;
       }
+      @include smartphones(landscape-iphonex) {
+        font-size: 18px;
+      }
       @include web {
         padding-top: 1rem;
         width: 30rem;
@@ -126,6 +132,9 @@
     @include smartphones(landscape) {
       height: 40vw;
     }
+    @include smartphones(landscape-iphonex) {
+      margin-top: 4.5rem;
+    }
     display: flex;
     flex-direction: column;
     margin-top: 20vh;
@@ -133,6 +142,9 @@
       @include mobile {
         padding-left: 2rem;
         font-size: 2rem;
+      }
+      @include smartphones(landscape) {
+        padding-left: 4rem;
       }
       @extend %font-oswald;
       align-self: flex-start;
@@ -206,6 +218,9 @@
     @include mobile {
       width: 100vw;
       margin-top: 0rem;
+    }
+    @include smartphones(landscape-iphonex) {
+      margin-top: 1rem;
     }
     @include web {
     }
